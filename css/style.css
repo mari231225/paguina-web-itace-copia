@@ -1,0 +1,154 @@
+/* ===== BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fbf7f0;
+  color: #38292b;
+  line-height: 1.7;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a:focus,
+button:focus {
+  outline: 3px solid #bd986b;
+  outline-offset: 2px;
+}
+
+/* ===== MENÚ ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.menu {
+  background-color: #451820;
+  padding: 15px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.logo {
+  color: white;
+  text-decoration: none;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.logo span {
+  display: block;
+  font-size: 10px;
+  color: #dfc5aa;
+  text-align: center;
+}
+
+.enlaces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.enlaces a {
+  color: #f6eae0;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.enlaces a:hover {
+  color: #bd986b;
+}
+
+/* ===== PORTADA ===== */
+.hero {
+  min-height: 520px;
+  padding: 80px 9%;
+  display: flex;
+  align-items: center;
+  color: white;
+  background-image: linear-gradient(rgba(49, 17, 24, 0.92), rgba(42, 19, 23, 0.82)),
+                    url("../imagenes/entrada.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-contenido {
+  max-width: 650px;
+}
+
+.etiqueta {
+  color: #bd986b;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  font-size: 50px;
+  margin: 15px 0;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* ===== BOTONES ===== */
+.boton {
+  display: inline-block;
+  padding: 12px 22px;
+  background-color: #f3e8d8;
+  color: #451820;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.boton:hover {
+  background-color: white;
+}
+
+/* ===== PIE DE PÁGINA ===== */
+.site-footer {
+  background-color: #301219;
+  color: #e8d9cf;
+  text-align: center;
+  padding: 30px 15px;
+  font-size: 14px;
+}
+
+/* ===== CELULAR ===== */
+@media (max-width: 700px) {
+  .menu {
+    justify-content: center;
+  }
+
+  .enlaces {
+    justify-content: center;
+    gap: 10px 14px;
+  }
+
+  .hero {
+    min-height: 420px;
+    padding: 60px 7%;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+}
