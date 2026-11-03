@@ -3,40 +3,158 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio | ITACE Reynosa (propuesta académica)</title>
+  <meta name="description" content="Propuesta académica del ITACE Plantel Reynosa: oferta educativa, instalaciones y vida estudiantil.">
+  <meta name="theme-color" content="#702632">
+  <title>Inicio | ITACE Reynosa</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
 </head>
 <body>
-
+  <!-- ENCABEZADO Y MENÚ -->
   <header class="site-header">
     <nav class="menu" aria-label="Navegación principal">
-      <a href="index.html" class="logo">ITACE <span>REYNOSA</span></a>
-      <div class="enlaces">
-        <a href="index.html">Inicio</a>
-        <a href="paginas/conocenos.html">Conócenos</a>
-        <a href="paginas/oferta-educativa.html">Oferta</a>
-        <a href="paginas/docentes.html">Docentes</a>
-        <a href="paginas/galeria.html">Galería</a>
-        <a href="paginas/contacto.html">Contacto</a>
-      </div>
+      <a href="index.html" class="logo">
+        ITACE <span>REYNOSA</span>
+      </a>
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Abrir menú de navegación"
+        aria-expanded="false"
+        aria-controls="enlaces"
+      >
+        ☰
+      </button>
+      <div class="enlaces" id="enlaces">
+  <a href="index.html" aria-current="page">Inicio</a>
+  <a href="paginas/conocemos.html">Conocemos</a>
+  <a href="paginas/oferta-educativa.html">Oferta educativa</a>
+  <a href="paginas/instalaciones.html">Instalaciones</a>
+  <a href="paginas/vida-estudiantil.html">Vida estudiantil</a>
+  <a href="paginas/proyectos-estudiantiles.html">Proyectos estudiantiles</a>
+  <a href="paginas/noticias.html">Noticias</a>
+  <a href="paginas/eventos.html">Eventos y conferencias</a>
+  <a href="paginas/admisiones.html">Admisiones</a>
+  <a href="paginas/docentes.html">Directorio docente</a>
+  <a href="paginas/identidad.html">Identidad ITACE</a>
+  <a href="paginas/galeria.html">Galería multimedia</a>
+  <a href="paginas/preguntas.html">Preguntas frecuentes</a>
+  <a href="paginas/contacto.html">Contacto y ubicacion</a>
+  <a href="paginas/creditos.html">Créditos y fuentes</a>
+</div>
     </nav>
   </header>
-
   <main>
-    <section class="hero">
+    <!-- PORTADA -->
+    <section class="hero" id="inicio">
       <div class="hero-contenido">
-        <span class="etiqueta">BIENVENIDOS</span>
+        <span class="etiqueta">BIENVENIDOS AL ITACE</span>
         <h1>ITACE Plantel Reynosa</h1>
-        <p>Capacitación técnica para el empleo: aprende, practica y prepárate para nuevas oportunidades.</p>
-        <a class="boton" href="paginas/oferta-educativa.html">Conoce la oferta educativa</a>
+        <p>
+          Formación técnica, conocimientos y habilidades para construir
+          nuevas oportunidades académicas y profesionales.
+        </p>
+        <div class="hero-botones">
+          <a class="boton" href="paginas/oferta-educativa.html">
+            Conoce nuestra oferta educativa
+          </a>
+          <a class="boton boton-secundario" href="paginas/conocemos.html">
+            Conoce al ITACE
+          </a>
+        </div>
       </div>
     </section>
-  </main>
-
+    <!-- ACCESOS PRINCIPALES -->
+    <section class="seccion-inicio">
+      <div class="encabezado-seccion">
+        <span class="etiqueta">DESCUBRE</span>
+        <h2>Conoce nuestro plantel</h2>
+        <p>
+          Explora los espacios, programas y actividades que forman
+          parte de nuestra comunidad educativa.
+        </p>
+      </div>
+      <div class="tarjetas-inicio">
+        <article class="tarjeta-inicio">
+          <div class="icono-tarjeta" aria-hidden="true">01</div>
+          <h3>Conócenos</h3>
+          <p>
+            Descubre la historia, los valores y la identidad
+            de nuestra institución.
+          </p>
+          <a href="paginas/conocenos.html">Conocer más →</a>
+        </article>
+        <article class="tarjeta-inicio">
+          <div class="icono-tarjeta" aria-hidden="true">02</div>
+          <h3>Oferta educativa</h3>
+          <p>
+            Consulta las especialidades y opciones de formación
+            técnica del plantel.
+          </p>
+          <a href="paginas/oferta-educativa.html">Explorar carreras →</a>
+        </article>
+        <article class="tarjeta-inicio">
+          <div class="icono-tarjeta" aria-hidden="true">03</div>
+          <h3>Directorio docente</h3>
+          <p>
+            Encuentra información académica autorizada
+            sobre docentes y materias.
+          </p>
+          <a href="paginas/docentes.html">Consultar directorio →</a>
+        </article>
+        <article class="tarjeta-inicio">
+          <div class="icono-tarjeta" aria-hidden="true">04</div>
+          <h3>Instalaciones</h3>
+          <p>
+            Conoce los espacios de aprendizaje, talleres
+            y áreas del plantel.
+          </p>
+          <a href="paginas/instalaciones.html">Ver instalaciones →</a>
+        </article>
+        <article class="tarjeta-inicio">
+          <div class="icono-tarjeta" aria-hidden="true">05</div>
+          <h3>Vida estudiantil</h3>
+          <p>
+            Descubre actividades escolares, proyectos,
+            eventos y experiencias estudiantiles.
+          </p>
+          <a href="paginas/vida-estudiantil.html">Descubrir actividades →</a>
+        </article>
+        <article class="tarjeta-inicio">
+          <div class="icono-tarjeta" aria-hidden="true">06</div>
+          <h3>Galería multimedia</h3>
+          <p>
+            Explora fotografías y materiales de las actividades
+            y experiencias escolares.
+          </p>
+          <a href="paginas/galeria.html">Ver galería →</a>
+        </article>
+      </div>
+    </section>
+    <!-- IDENTIDAD INSTITUCIONAL -->
+    <section class="franja-identidad">
+      <div>
+        <span class="etiqueta">IDENTIDAD Y ORGULLO ITACE</span>
+        <h2>Una comunidad que aprende y crece</h2>
+        <p>
+          Conoce las actividades, los proyectos y las expresiones
+          de identidad de nuestra comunidad educativa.
+        </p>
+      </div>
+      <a class="boton" href="paginas/identidad.html">
+        Conocer nuestra identidad
+      </a>
+    </section>
+  <!-- PIE DE PÁGINA -->
   <footer class="site-footer">
-    <p>ITACE Plantel Reynosa · Propuesta académica no oficial</p>
+    <p>ITACE Plantel Reynosa</p>
     <p>Proyecto escolar · Grupo 502 B · 2026</p>
+    <p>
+      Propuesta académica no oficial.
+      Información e imágenes sujetas a verificación y autorización.
+    </p>
+    <a href="paginas/contacto.html">Contacto</a>
   </footer>
-
 </body>
 </html>

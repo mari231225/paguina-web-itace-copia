@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Información orientativa sobre el proceso de admisión al ITACE Plantel Reynosa.">
+    <title>Admisiones | ITACE Plantel Reynosa</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        :root {
+            --vino: #702632;
+            --vino-oscuro: #451820;
+            --beige: #f3e8d8;
+            --crema: #fffaf3;
+            --dorado: #c4a15a;
+            --texto: #49383a;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 25px;
+        }
+        body {
+            margin: 0;
+            color: var(--texto);
+            background: linear-gradient(180deg, var(--crema), var(--beige));
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.7;
+        }
+        a:focus-visible {
+            outline: 3px solid var(--dorado);
+            outline-offset: 4px;
+        }
+        .portada {
+            padding: 75px 20px;
+            color: white;
+            text-align: center;
+            background: linear-gradient(
+                135deg,
+                rgba(69, 24, 32, .98),
+                rgba(112, 38, 50, .92)
+            );
+            border-bottom: 5px solid var(--dorado);
+        }
+        .etiqueta {
+            display: inline-block;
+            padding: 6px 17px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, .45);
+            border-radius: 30px;
+            color: #fff3d9;
+            font-size: .82rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .portada h1 {
+            max-width: 900px;
+            margin: 0 auto 15px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.3rem, 5vw, 3.8rem);
+            line-height: 1.2;
+        }
+        .portada p {
+            max-width: 750px;
+            margin: 0 auto;
+            color: #f7e9e2;
+            font-size: 1.05rem;
+        }
+        .contenido {
+            width: min(1100px, 92%);
+            margin: 45px auto;
+        }
+        .introduccion {
+            max-width: 850px;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+        .introduccion h2,
+        .titulo-seccion {
+            color: var(--vino);
+            font-family: Georgia, "Times New Roman", serif;
+        }
+        .introduccion h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        }
+        .linea-dorada {
+            width: 75px;
+            height: 4px;
+            margin: 18px auto;
+            background: var(--dorado);
+            border-radius: 10px;
+        }
+        .introduccion p {
+            margin: 0;
+        }
+        .pasos {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+        .tarjeta {
+            padding: 26px 23px;
+            background: rgba(255, 255, 255, .9);
+            border: 1px solid rgba(112, 38, 50, .13);
+            border-top: 4px solid var(--dorado);
+            border-radius: 15px;
+            box-shadow: 0 7px 20px rgba(69, 24, 32, .07);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 26px rgba(69, 24, 32, .13);
+        }
+        .numero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            margin-bottom: 15px;
+            color: white;
+            background: var(--vino);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .tarjeta h3 {
+            margin: 0 0 12px;
+            color: var(--vino);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.35rem;
+        }
+        .tarjeta p {
+            margin: 0;
+            font-size: .95rem;
+        }
+        .titulo-seccion {
+            margin: 50px 0 25px;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            text-align: center;
+        }
+        .requisitos {
+            padding: 28px;
+            background: rgba(255, 255, 255, .82);
+            border: 1px solid rgba(112, 38, 50, .12);
+            border-radius: 16px;
+            box-shadow: 0 7px 20px rgba(69, 24, 32, .06);
+        }
+        .requisitos h3 {
+            margin-top: 0;
+            color: var(--vino);
+            font-family: Georgia, "Times New Roman", serif;
+        }
+        .lista-requisitos {
+            padding-left: 24px;
+        }
+        .lista-requisitos li {
+            margin-bottom: 10px;
+        }
+        .aviso {
+            margin-top: 30px;
+            padding: 22px 25px;
+            background: #fffaf3;
+            border-left: 5px solid var(--dorado);
+            border-radius: 10px;
+            font-size: .94rem;
+        }
+        .aviso strong {
+            color: var(--vino);
+        }
+        .preguntas {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+        .pregunta {
+            padding: 23px;
+            background: rgba(255, 255, 255, .9);
+            border: 1px solid rgba(112, 38, 50, .12);
+            border-radius: 13px;
+        }
+        .pregunta h3 {
+            margin-top: 0;
+            color: var(--vino);
+            font-size: 1.1rem;
+        }
+        .pregunta p {
+            margin-bottom: 0;
+            font-size: .94rem;
+        }
+        .centrado {
+            margin: 35px 0;
+            text-align: center;
+        }
+        .boton {
+            display: inline-block;
+            padding: 12px 25px;
+            color: white;
+            background: var(--vino);
+            border: 2px solid var(--vino);
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background .2s ease, color .2s ease;
+        }
+        .boton:hover {
+            color: var(--vino);
+            background: transparent;
+        }
+        footer {
+            padding: 25px 15px;
+            color: #f9eee5;
+            background: var(--vino-oscuro);
+            text-align: center;
+            font-size: .9rem;
+        }
+        footer p {
+            margin: 5px;
+        }
+        @media (max-width: 850px) {
+            .pasos {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        @media (max-width: 600px) {
+            .portada {
+                padding: 52px 18px;
+            }
+            .contenido {
+                margin: 30px auto;
+            }
+            .pasos,
+            .preguntas {
+                grid-template-columns: 1fr;
+            }
+            .requisitos {
+                padding: 22px;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="portada">
+        <span class="etiqueta">ITACE · Plantel Reynosa</span>
+        <h1>Admisiones</h1>
+        <p>
+            Conoce los aspectos que debes considerar para iniciar
+            tu proceso de ingreso y dar el siguiente paso en tu
+            formación académica y técnica.
+        </p>
+    </header>
+    <main class="contenido">
+        <section class="introduccion">
+            <h2>Tu camino comienza aquí</h2>
+            <div class="linea-dorada"></div>
+            <p>
+                Elegir dónde continuar tus estudios es una decisión
+                importante. Informarte con anticipación te ayudará
+                a conocer la oferta educativa, los requisitos y las
+                fechas correspondientes al proceso de admisión.
+            </p>
+        </section>
+        <section class="pasos" aria-label="Pasos orientativos para el ingreso">
+            <article class="tarjeta">
+                <div class="numero" aria-hidden="true">1</div>
+                <h3>Conoce la oferta educativa</h3>
+                <p>
+                    Consulta las especialidades disponibles y revisa
+                    cuál se relaciona con tus intereses y objetivos.
+                </p>
+            </article>
+            <article class="tarjeta">
+                <div class="numero" aria-hidden="true">2</div>
+                <h3>Consulta la convocatoria</h3>
+                <p>
+                    Verifica las fechas, los requisitos y las
+                    instrucciones publicadas por los canales
+                    institucionales correspondientes.
+                </p>
+            </article>
+            <article class="tarjeta">
+                <div class="numero" aria-hidden="true">3</div>
+                <h3>Prepara tus documentos</h3>
+                <p>
+                    Reúne los documentos que solicite la convocatoria
+                    vigente. Confirma previamente el formato y las
+                    condiciones de entrega.
+                </p>
+            </article>
+            <article class="tarjeta">
+                <div class="numero" aria-hidden="true">4</div>
+                <h3>Realiza el registro</h3>
+                <p>
+                    Sigue las indicaciones oficiales para completar
+                    tu solicitud dentro del periodo establecido.
+                </p>
+            </article>
+            <article class="tarjeta">
+                <div class="numero" aria-hidden="true">5</div>
+                <h3>Revisa las indicaciones</h3>
+                <p>
+                    Mantente pendiente de los avisos sobre los
+                    siguientes pasos, resultados o trámites que
+                    indique la institución.
+                </p>
+            </article>
+            <article class="tarjeta">
+                <div class="numero" aria-hidden="true">6</div>
+                <h3>Confirma tu inscripción</h3>
+                <p>
+                    Si eres aceptado, consulta las instrucciones
+                    oficiales para completar tu inscripción y
+                    conocer el inicio de clases.
+                </p>
+            </article>
+        </section>
+        <h2 class="titulo-seccion">Documentación y requisitos</h2>
+        <section class="requisitos">
+            <h3>¿Qué debes revisar antes de iniciar?</h3>
+            <p>
+                Los documentos exactos pueden variar según la
+                convocatoria y el tipo de trámite. Antes de reunirlos,
+                confirma la lista oficial vigente.
+            </p>
+            <ul class="lista-requisitos">
+                <li>Requisitos de escolaridad para el ingreso.</li>
+                <li>Documentos de identificación solicitados.</li>
+                <li>Documentación académica requerida.</li>
+                <li>Fechas y modalidades de registro.</li>
+                <li>Indicaciones sobre pagos, si corresponde.</li>
+                <li>Procedimiento y fechas para formalizar la inscripción.</li>
+            </ul>
+        </section>
+        <aside class="aviso">
+            <strong>Importante:</strong>
+            esta lista es orientativa, no una lista oficial de
+            documentos obligatorios. Verifica los requisitos,
+            costos, fechas y procedimientos directamente con el
+            ITACE Plantel Reynosa antes de realizar cualquier trámite.
+        </aside>
+        <h2 class="titulo-seccion">Preguntas frecuentes</h2>
+        <section class="preguntas" aria-label="Preguntas frecuentes sobre admisiones">
+            <article class="pregunta">
+                <h3>¿Dónde consulto las fechas de admisión?</h3>
+                <p>
+                    Consulta los avisos y las convocatorias vigentes
+                    por los canales institucionales o directamente
+                    con el plantel.
+                </p>
+            </article>
+            <article class="pregunta">
+                <h3>¿Qué especialidades puedo elegir?</h3>
+                <p>
+                    Revisa la sección de Oferta educativa de este
+                    proyecto y confirma con el plantel cuáles
+                    especialidades están disponibles para tu generación.
+                </p>
+            </article>
+            <article class="pregunta">
+                <h3>¿Qué documentos necesito?</h3>
+                <p>
+                    Depende de los requisitos de la convocatoria
+                    vigente. Consulta la lista oficial antes de
+                    preparar tu expediente.
+                </p>
+            </article>
+            <article class="pregunta">
+                <h3>¿Dónde puedo resolver mis dudas?</h3>
+                <p>
+                    Consulta la sección de Contacto y ubicación
+                    de este proyecto y verifica los medios de
+                    atención oficiales del plantel.
+                </p>
+            </article>
+        </section>
+        <div class="centrado">
+            <a href="oferta-educativa.html" class="boton">
+                Consultar oferta educativa
+            </a>
+            <br><br>
+            <a href="../index.html" class="boton">
+                Volver al inicio
+            </a>
+        </div>
+    </main>
+    <footer>
+        <p><strong>ITACE Plantel Reynosa</strong></p>
+        <p>Proyecto académico ITACE DIGITAL 4.0 · Propuesta no oficial</p>
+    </footer>
+</body>
+</html>

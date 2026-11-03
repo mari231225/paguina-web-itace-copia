@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Página de contacto y orientación del proyecto académico ITACE Plantel Reynosa.">
+  <meta name="theme-color" content="#702632">
+  <title>Contacto y ubicación | ITACE Reynosa</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .contacto-pagina {
+      padding: 65px 7%;
+      background: #f8f3eb;
+      min-height: 70vh;
+    }
+
+    .contacto-encabezado {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 40px;
+    }
+
+    .contacto-encabezado h1 {
+      color: #702632;
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin: 12px 0;
+    }
+
+    .contacto-encabezado p {
+      color: #625651;
+      line-height: 1.8;
+    }
+
+    .contacto-grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .contacto-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 18px;
+      border: 1px solid #e5d5c4;
+      box-shadow: 0 8px 25px #45251b12;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .contacto-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px #45251b20;
+    }
+
+    .contacto-card h2 {
+      color: #702632;
+      margin-top: 0;
+      margin-bottom: 18px;
+    }
+
+    .contacto-card p {
+      color: #5d514b;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .contacto-card a {
+      color: #702632;
+      font-weight: bold;
+      overflow-wrap: anywhere;
+    }
+
+    .contacto-formulario {
+      display: grid;
+      gap: 15px;
+    }
+
+    .contacto-formulario label {
+      color: #49342e;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .contacto-formulario input,
+    .contacto-formulario select,
+    .contacto-formulario textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #d8c6b5;
+      border-radius: 9px;
+      background: #fffdfb;
+      color: #392b27;
+      font: inherit;
+    }
+
+    .contacto-formulario input:focus,
+    .contacto-formulario select:focus,
+    .contacto-formulario textarea:focus {
+      outline: 2px solid #a56b43;
+      outline-offset: 2px;
+    }
+
+    .contacto-formulario textarea {
+      min-height: 125px;
+      resize: vertical;
+    }
+
+    .contacto-boton {
+      padding: 13px 20px;
+      background: #702632;
+      color: white;
+      border: 0;
+      border-radius: 9px;
+      font: inherit;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background .2s ease;
+    }
+
+    .contacto-boton:hover {
+      background: #501923;
+    }
+
+    .contacto-aviso {
+      padding: 14px;
+      border-radius: 9px;
+      background: #f4ead8;
+      color: #5b3e28;
+      line-height: 1.7;
+      font-size: .92rem;
+    }
+
+    #respuestaContacto {
+      color: #285b37;
+      line-height: 1.6;
+      font-weight: bold;
+    }
+
+    .contacto-volver {
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    .contacto-volver a {
+      color: #702632;
+      font-weight: bold;
+    }
+
+    @media (max-width: 700px) {
+      .contacto-pagina {
+        padding: 42px 5%;
+      }
+
+      .contacto-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contacto-card {
+        padding: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="menu" aria-label="Navegación principal">
+      <a href="../index.html" class="logo">
+        ITACE <span>REYNOSA</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Abrir menú de navegación"
+        aria-expanded="false"
+        aria-controls="enlaces">
+        ☰
+      </button>
+
+      <div class="enlaces" id="enlaces">
+        <a href="../index.html">Inicio</a>
+        <a href="conocenos.html">Conócenos</a>
+        <a href="oferta-educativa.html">Oferta educativa</a>
+        <a href="instalaciones.html">Instalaciones</a>
+        <a href="vida-estudiantil.html">Vida estudiantil</a>
+        <a href="proyectos-estudiantiles.html">Proyectos</a>
+        <a href="noticias.html">Noticias</a>
+        <a href="eventos.html">Eventos</a>
+        <a href="admisiones.html">Admisiones</a>
+        <a href="docentes.html">Docentes</a>
+        <a href="identidad.html">Identidad ITACE</a>
+        <a href="galeria.html">Galería</a>
+        <a href="preguntas.html">Preguntas frecuentes</a>
+        <a href="contacto.html" aria-current="page">Contacto</a>
+        <a href="creditos.html">Créditos</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contacto-pagina">
+      <div class="contacto-encabezado">
+        <span class="etiqueta">ESTAMOS PARA ORIENTARTE</span>
+        <h1>Contacto y ubicación</h1>
+        <p>
+          Consulta los canales institucionales para encontrar información
+          sobre el plantel, los trámites escolares y los procesos de admisión.
+        </p>
+      </div>
+
+      <div class="contacto-grid">
+        <article class="contacto-card">
+          <h2>Información institucional</h2>
+          <p>
+            Para confirmar la dirección, los horarios y los medios de
+            comunicación vigentes, consulta los canales oficiales del ITACE.
+          </p>
+          <p>
+            <strong>Sitio institucional:</strong><br>
+            <a href="https://www.facebook.com/share/1d6SpAx98V/?mibextid=wwXIfr" target="_blank"
+               rel="noopener noreferrer">
+              https://itace.edu.mx/
+            </a>
+          </p>
+          <p>
+            <strong>Ubicación:</strong><br>
+            Verifica la dirección exacta del Plantel Reynosa en las fuentes
+            institucionales antes de acudir.
+          </p>
+          <div class="contacto-aviso">
+            Esta página es una propuesta académica. Los datos de contacto
+            y ubicación deben confirmarse antes de publicarse.
+          </div>
+        </article>
+
+        <article class="contacto-card">
+          <h2>Formulario de orientación</h2>
+          <p>
+            Completa este formulario de demostración para probar el diseño.
+            Los datos no se envían ni se guardan.
+          </p>
+
+          <form class="contacto-formulario" id="formContacto">
+            <div>
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre"
+                     placeholder="Escribe tu nombre" required>
+            </div>
+
+            <div>
+              <label for="correo">Correo electrónico</label>
+              <input type="email" id="correo" name="correo"
+                     placeholder="ejemplo@correo.com" required>
+            </div>
+
+            <div>
+              <label for="motivo">Motivo de consulta</label>
+              <select id="motivo" name="motivo" required>
+                <option value="">Selecciona una opción</option>
+                <option value="admisiones">Admisiones</option>
+                <option value="oferta">Oferta educativa</option>
+                <option value="servicios">Servicios escolares</option>
+                <option value="otro">Otro asunto</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje"
+                        placeholder="Escribe tu consulta"
+                        required></textarea>
+            </div>
+
+            <button class="contacto-boton" type="submit">
+              Probar formulario
+            </button>
+
+            <p id="respuestaContacto" role="status" aria-live="polite"></p>
+          </form>
+        </article>
+      </div>
+
+      <div class="contacto-volver">
+        <a href="../index.html">← Volver a la página principal</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>ITACE Plantel Reynosa</p>
+    <p>Proyecto escolar · Grupo 502 B · 2026</p>
+    <p>Propuesta académica no oficial.</p>
+    <a href="creditos.html">Créditos y fuentes</a>
+  </footer>
+
+  <script src="../js/script.js" defer></script>
+  <script>
+    const formulario = document.getElementById("formContacto");
+    const respuesta = document.getElementById("respuestaContacto");
+
+    formulario.addEventListener("submit", function(event) {
+      event.preventDefault();
+      respuesta.textContent =
+        "¡Prueba completada! Este formulario es una demostración: tu mensaje no se envió al ITACE.";
+      formulario.reset();
+    });
+  </script>
+</body>
+</html>

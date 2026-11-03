@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conoce los proyectos, actividades educativas y propuestas académicas del ITACE Plantel Reynosa.">
+    <title>Proyectos Estudiantiles | ITACE Reynosa</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        :root {
+            --vino: #702632;
+            --vino-oscuro: #451820;
+            --beige: #f3e8d8;
+            --crema: #fffaf3;
+            --dorado: #c4a15a;
+            --texto: #49383a;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: var(--texto);
+            background: linear-gradient(180deg, #fffaf3, #f3e8d8);
+            line-height: 1.7;
+        }
+        .proyectos-portada {
+            padding: 75px 20px;
+            text-align: center;
+            color: white;
+            background:
+                linear-gradient(135deg, rgba(69, 24, 32, .97), rgba(112, 38, 50, .91));
+            border-bottom: 5px solid var(--dorado);
+        }
+        .proyectos-portada .etiqueta {
+            display: inline-block;
+            padding: 6px 17px;
+            margin-bottom: 15px;
+            color: #fff5dc;
+            border: 1px solid rgba(255, 255, 255, .4);
+            border-radius: 30px;
+            font-size: .85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .proyectos-portada h1 {
+            margin: 0 auto 15px;
+            max-width: 900px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.2rem, 5vw, 3.7rem);
+            line-height: 1.2;
+        }
+        .proyectos-portada p {
+            max-width: 760px;
+            margin: 0 auto;
+            color: #f7e9e2;
+            font-size: 1.05rem;
+        }
+        .proyectos-contenido {
+            width: min(1180px, 92%);
+            margin: 55px auto;
+        }
+        .introduccion {
+            max-width: 850px;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+        .introduccion h2 {
+            margin-bottom: 12px;
+            color: var(--vino);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        }
+        .introduccion p {
+            margin: 0;
+            font-size: 1.02rem;
+        }
+        .linea-dorada {
+            width: 75px;
+            height: 4px;
+            margin: 18px auto;
+            background: var(--dorado);
+            border-radius: 10px;
+        }
+        .proyectos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 27px;
+        }
+        .proyecto-card {
+            overflow: hidden;
+            background: rgba(255, 255, 255, .88);
+            border: 1px solid rgba(112, 38, 50, .12);
+            border-radius: 17px;
+            box-shadow: 0 8px 24px rgba(69, 24, 32, .09);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+        .proyecto-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px rgba(69, 24, 32, .16);
+        }
+        .proyecto-card img {
+            display: block;
+            width: 100%;
+            height: 225px;
+            object-fit: cover;
+            background: var(--beige);
+        }
+        .proyecto-info {
+            padding: 23px;
+        }
+        .proyecto-categoria {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: var(--vino);
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .proyecto-info h3 {
+            margin: 0 0 12px;
+            color: var(--vino-oscuro);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.4rem;
+            line-height: 1.35;
+        }
+        .proyecto-info p {
+            margin: 0;
+            font-size: .96rem;
+        }
+        .mensaje-final {
+            margin-top: 45px;
+            padding: 30px;
+            text-align: center;
+            background: #fffaf3;
+            border-left: 5px solid var(--dorado);
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(69, 24, 32, .07);
+        }
+        .mensaje-final h2 {
+            margin: 0 0 10px;
+            color: var(--vino);
+            font-family: Georgia, "Times New Roman", serif;
+        }
+        .mensaje-final p {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .volver-inicio {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 11px 23px;
+            color: white;
+            background: var(--vino);
+            border: 2px solid var(--vino);
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background .2s ease, color .2s ease;
+        }
+        .volver-inicio:hover {
+            color: var(--vino);
+            background: transparent;
+        }
+        .pie-proyectos {
+            padding: 25px 15px;
+            color: #f9eee5;
+            background: var(--vino-oscuro);
+            text-align: center;
+            font-size: .9rem;
+        }
+        .pie-proyectos p {
+            margin: 5px;
+        }
+        @media (max-width: 900px) {
+            .proyectos-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        @media (max-width: 600px) {
+            .proyectos-portada {
+                padding: 55px 18px;
+            }
+            .proyectos-contenido {
+                width: 90%;
+                margin: 35px auto;
+            }
+            .proyectos-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+            .proyecto-card img {
+                height: 230px;
+            }
+            .proyecto-info {
+                padding: 20px;
+            }
+            .mensaje-final {
+                padding: 23px 18px;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="proyectos-portada">
+        <span class="etiqueta">ITACE · Plantel Reynosa</span>
+        <h1>Proyectos Estudiantiles</h1>
+        <p>
+            Un espacio dedicado a las ideas, la creatividad, el aprendizaje
+            y las actividades que contribuyen al desarrollo de nuestra
+            comunidad educativa.
+        </p>
+    </header>
+    <main class="proyectos-contenido">
+        <section class="introduccion">
+            <h2>Ideas que inspiran y transforman</h2>
+            <div class="linea-dorada"></div>
+            <p>
+                Los proyectos y actividades escolares permiten aplicar los
+                conocimientos adquiridos en clase, desarrollar nuevas
+                habilidades y compartir propuestas que favorecen el
+                aprendizaje, la colaboración y la participación estudiantil.
+            </p>
+        </section>
+        <section class="proyectos-grid" aria-label="Proyectos y actividades estudiantiles">
+            <!-- PROYECTO 1 -->
+            <article class="proyecto-card">
+                <img
+                    src="../imagenes/salud.jpeg"
+                    alt="Actividad relacionada con la salud y el bienestar"
+                    loading="lazy"
+                >
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">01 · Bienestar</span>
+                    <h3>Salud y bienestar</h3>
+                    <p>
+                        Promueve la importancia del cuidado de la salud,
+                        la prevención y el bienestar de la comunidad escolar
+                        mediante actividades informativas y educativas.
+                    </p>
+                </div>
+            </article>
+            <!-- PROYECTO 2 -->
+            <article class="proyecto-card">
+                <img
+                    src="../imagenes/cultura de paz.jpeg"
+                    alt="Material o actividad sobre la cultura de paz"
+                    loading="lazy"
+                >
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">02 · Convivencia</span>
+                    <h3>Cultura de paz</h3>
+                    <p>
+                        Fomenta el respeto, el diálogo, la empatía y la
+                        resolución pacífica de conflictos para construir
+                        un ambiente escolar inclusivo y una convivencia
+                        armoniosa.
+                    </p>
+                </div>
+            </article>
+            <!-- PROYECTO 3 -->
+            <article class="proyecto-card">
+                <img
+                    src="../imagenes/proyecto prg.jpeg"
+                    alt="Fotografía de un proyecto académico"
+                    loading="lazy"
+                >
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">03 · Aprendizaje</span>
+                    <h3>Proyectos y propuestas académicas</h3>
+                    <p>
+                        Presenta ideas y trabajos desarrollados en el ámbito
+                        escolar para aplicar conocimientos, investigar
+                        necesidades y proponer soluciones mediante la
+                        creatividad y la colaboración.
+                    </p>
+                </div>
+            </article>
+            <!-- PROYECTO 4 -->
+            <article class="proyecto-card">
+                <img
+                    src="../imagenes/programacion.jpeg"
+                    alt="Actividad relacionada con la programación"
+                    loading="lazy"
+                >
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">04 · Tecnología</span>
+                    <h3>Programación y desarrollo digital</h3>
+                    <p>
+                        Explora la creación de páginas web, programas y
+                        soluciones digitales mediante la lógica, el diseño
+                        y la resolución de problemas con herramientas
+                        tecnológicas.
+                    </p>
+                </div>
+            </article>
+            <!-- PROYECTO 5 -->
+            <article class="proyecto-card">
+                <img
+                    src="../imagenes/feri infantil2.jpeg"
+                    alt="Fotografía de una feria o actividad educativa"
+                    loading="lazy"
+                >
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">05 · Participación</span>
+                    <h3>Actividades y ferias educativas</h3>
+                    <p>
+                        Las ferias y actividades educativas permiten
+                        compartir conocimientos, despertar la curiosidad
+                        y aprender mediante experiencias participativas
+                        y creativas.
+                    </p>
+                </div>
+            </article>
+            <!-- PROYECTO 6 -->
+            <article class="proyecto-card">
+                <img
+                    src="../imagenes/presentaciones.jpeg"
+                    alt="Presentación de un proyecto escolar"
+                    loading="lazy"
+                >
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">06 · Colaboración</span>
+                    <h3>Presentaciones y trabajo colaborativo</h3>
+                    <p>
+                        Las presentaciones escolares permiten comunicar
+                        ideas, compartir resultados y fortalecer la expresión
+                        oral, la organización y el trabajo en equipo.
+                    </p>
+                </div>
+            </article>
+        </section>
+        <section class="mensaje-final">
+            <h2>Aprender, crear y compartir</h2>
+            <p>
+                Cada actividad representa una oportunidad para descubrir
+                habilidades, trabajar en equipo y convertir los conocimientos
+                en experiencias significativas para la comunidad escolar.
+            </p>
+            <a href="../index.html" class="volver-inicio">
+                Volver al inicio
+            </a>
+        </section>
+    </main>
+    <footer class="pie-proyectos">
+        <p><strong>ITACE Plantel Reynosa</strong></p>
+        <p>Proyectos Estudiantiles · ITACE DIGITAL 4.0</p>
+    </footer>
+</body>
+</html>

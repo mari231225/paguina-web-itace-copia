@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conoce las instalaciones del proyecto académico ITACE Plantel Reynosa.">
+    <meta name="theme-color" content="#702632">
+    <title>Instalaciones | ITACE Reynosa</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .instalaciones {
+            max-width: 1150px;
+            margin: auto;
+            padding: 55px 22px;
+        }
+        .portada-instalaciones {
+            padding: 75px 20px;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(135deg, #451820, #702632, #92515a);
+        }
+        .portada-instalaciones h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            margin-bottom: 15px;
+        }
+        .portada-instalaciones p {
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.8;
+        }
+        .titulo-instalaciones {
+            text-align: center;
+            color: #702632;
+            margin-bottom: 35px;
+        }
+        .titulo-instalaciones h2 {
+            font-size: clamp(1.6rem, 4vw, 2.3rem);
+            margin-bottom: 12px;
+        }
+        .titulo-instalaciones p {
+            color: #62585a;
+            line-height: 1.7;
+        }
+        .galeria-instalaciones {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+        }
+        .tarjeta-instalacion {
+            background: #fffaf3;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(69, 24, 32, 0.12);
+            border: 1px solid #ead9cf;
+            transition: transform 0.3s ease;
+        }
+        .tarjeta-instalacion:hover {
+            transform: translateY(-6px);
+        }
+        .tarjeta-instalacion img {
+            display: block;
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+        .contenido-instalacion {
+            padding: 23px;
+        }
+        .contenido-instalacion h3 {
+            color: #702632;
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+        .contenido-instalacion p {
+            color: #62585a;
+            line-height: 1.7;
+        }
+        .mensaje-instalaciones {
+            margin-top: 40px;
+            padding: 28px;
+            border-left: 5px solid #702632;
+            border-radius: 10px;
+            background: #f3e8d8;
+            color: #451820;
+            line-height: 1.8;
+        }
+        .boton-regreso {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 24px;
+            background: #702632;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        .boton-regreso:hover {
+            background: #451820;
+        }
+        .volver-inicio {
+            text-align: center;
+            margin-top: 35px;
+        }
+        @media (max-width: 800px) {
+            .galeria-instalaciones {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        @media (max-width: 550px) {
+            .galeria-instalaciones {
+                grid-template-columns: 1fr;
+            }
+            .portada-instalaciones {
+                padding: 55px 18px;
+            }
+            .instalaciones {
+                padding: 38px 16px;
+            }
+            .tarjeta-instalacion img {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="menu" aria-label="Navegación principal">
+            <a href="../index.html" class="logo">
+                ITACE <span>REYNOSA</span>
+            </a>
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Abrir menú de navegación"
+                aria-expanded="false"
+                aria-controls="enlaces">
+                ☰
+            </button>
+            <div class="enlaces" id="enlaces">
+                <a href="../index.html">Inicio</a>
+                <a href="conocenos.html">Conócenos</a>
+                <a href="oferta-educativa.html">Oferta educativa</a>
+                <a href="docentes.html">Docentes</a>
+                <a href="instalaciones.html" aria-current="page">Instalaciones</a>
+                <a href="galeria.html">Galería</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="portada-instalaciones">
+            <h1>Nuestras instalaciones</h1>
+            <p>
+                Conoce los espacios que forman parte de nuestra
+                comunidad educativa y que acompañan el aprendizaje,
+                la convivencia y el desarrollo de habilidades.
+            </p>
+        </section>
+        <section class="instalaciones">
+            <div class="titulo-instalaciones">
+                <h2>Espacios de nuestra comunidad</h2>
+                <p>
+                    Cada espacio representa una oportunidad para
+                    aprender, convivir y desarrollar nuevas habilidades.
+                </p>
+            </div>
+            <div class="galeria-instalaciones">
+                <article class="tarjeta-instalacion">
+                    <img
+                        src="../imagenes/entrada.jpeg"
+                        alt="Entrada del plantel ITACE"
+                        loading="lazy">
+                    <div class="contenido-instalacion">
+                        <h3>Entrada del plantel</h3>
+                        <p>
+                            Un espacio que da la bienvenida a los
+                            estudiantes, docentes y visitantes.
+                        </p>
+                    </div>
+                </article>
+                <article class="tarjeta-instalacion">
+                    <img
+                        src="../imagenes/comedor.jpeg"
+                        alt="Área de comedor del plantel"
+                        loading="lazy">
+                    <div class="contenido-instalacion">
+                        <h3>Área de convivencia</h3>
+                        <p>
+                            Un espacio para descansar y convivir
+                            durante la jornada escolar.
+                        </p>
+                    </div>
+                </article>
+                <article class="tarjeta-instalacion">
+                    <img
+                        src="../imagenes/festival.jpeg"
+                        alt="Actividad escolar en el plantel"
+                        loading="lazy">
+                    <div class="contenido-instalacion">
+                        <h3>Actividades escolares</h3>
+                        <p>
+                            Las actividades escolares pueden fomentar
+                            la participación, la creatividad y el
+                            compañerismo.
+                        </p>
+                    </div>
+                </article>
+                <article class="tarjeta-instalacion">
+                    <img
+                        src="../imagenes/plaza del estudiante.jpeg"
+                        alt="Área de comedor del plantel"
+                        loading="lazy">
+                    <div class="contenido-instalacion">
+                        <h3>Área de convivencia</h3>
+                        <p>
+                            Un espacio para descansar y convivir
+                            durante la jornada escolar.
+                        </p>
+                    </div>
+                </article>
+                <article class="tarjeta-instalacion">
+                    <img
+                        src="../imagenes/oficinas el plantel.jpeg"
+                        alt="Área de comedor del plantel"
+                        loading="lazy">
+                    <div class="contenido-instalacion">
+                        <h3>Área de convivencia</h3>
+                        <p>
+                            Un espacio para descansar y convivir
+                            durante la jornada escolar.
+                        </p>
+                    </div>
+                </article>
+                <article class="tarjeta-instalacion">
+                    <img
+                        src="../imagenes/explanada.jpeg"
+                        alt="Área de comedor del plantel"
+                        loading="lazy">
+                    <div class="contenido-instalacion">
+                        <h3>Área de convivencia</h3>
+                        <p>
+                            Un espacio para descansar y convivir
+                            durante la jornada escolar.
+                        </p>
+                    </div>
+                </article>
+                <article class="tarjeta-instalacion">
+                    <img
+                        src="../imagenes/cuarto de bnada.jpeg"
+                        alt="Área de comedor del plantel"
+                        loading="lazy">
+                    <div class="contenido-instalacion">
+                        <h3>Área de convivencia</h3>
+                        <p>
+                            Un espacio para descansar y convivir
+                            durante la jornada escolar.
+                        </p>
+                    </div>
+                </article>
+                <article class="tarjeta-instalacion">
+                    <img
+                        src="../imagenes/laboratorio.jpeg"
+                        alt="Área de comedor del plantel"
+                        loading="lazy">
+                    <div class="contenido-instalacion">
+                        <h3>Área de convivencia</h3>
+                        <p>
+                            Un espacio para descansar y convivir
+                            durante la jornada escolar.
+                        </p>
+                    </div>
+                </article>
+            </div>
+            <div class="mensaje-instalaciones">
+                <h2>Aprendizaje y convivencia</h2>
+                <p>
+                    Los espacios escolares contribuyen a la formación
+                    académica y al desarrollo de experiencias que
+                    fortalecen la convivencia de la comunidad.
+                </p>
+            </div>
+            <div class="volver-inicio">
+                <a class="boton-regreso" href="../index.html">
+                    ← Volver al inicio
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <p>ITACE Plantel Reynosa</p>
+        <p>Proyecto escolar · Grupo 502 B · 2026</p>
+        <p>Propuesta académica no oficial.</p>
+        <a href="contacto.html">Contacto</a>
+    </footer>
+    <script src="../js/script.js" defer></script>
+</body>
+</html>

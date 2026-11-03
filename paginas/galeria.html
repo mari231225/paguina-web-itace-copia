@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galería multimedia del ITACE Plantel Reynosa: instalaciones, eventos y vida estudiantil.">
+    <meta name="theme-color" content="#451820">
+    <title>Galería Multimedia | ITACE Reynosa</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js" defer></script>
+
+    <style>
+        :root {
+            --vino: #702632;
+            --vino-oscuro: #451820;
+            --beige: #f3e8d8;
+            --crema: #fffaf3;
+            --texto: #493b3b;
+            --dorado: #c5a16b;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            margin: 0;
+            color: var(--texto);
+            background: #faf7f1;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        /* MENÚ */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .menu {
+            background: var(--vino-oscuro);
+            color: white;
+            padding: 14px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 4px 18px #00000020;
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 1.35rem;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: #e7c99d;
+        }
+
+        #enlaces {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        #enlaces a {
+            text-decoration: none;
+            color: #fffaf3;
+            font-size: .88rem;
+            padding: 9px 11px;
+            border-radius: 7px;
+            transition: background .25s, color .25s;
+        }
+
+        #enlaces a:hover,
+        #enlaces a[aria-current="page"] {
+            background: #ffffff18;
+            color: #f0d5a6;
+        }
+
+        #menuToggle {
+            display: none;
+            background: transparent;
+            color: white;
+            border: 1px solid #ffffff60;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        /* PORTADA */
+        .portada-galeria {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: 90px 22px 85px;
+            color: white;
+            background:
+                radial-gradient(ellipse at top right, #a85a55 0%, transparent 45%),
+                linear-gradient(135deg, #451820, #702632 60%, #321219);
+        }
+
+        .portada-galeria::before,
+        .portada-galeria::after {
+            content: "";
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            border: 1px solid #e7c99d55;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .portada-galeria::before {
+            top: -120px;
+            left: -70px;
+        }
+
+        .portada-galeria::after {
+            bottom: -155px;
+            right: -65px;
+            width: 300px;
+            height: 300px;
+        }
+
+        .portada-contenido {
+            position: relative;
+            z-index: 1;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .etiqueta {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid #e7c99d99;
+            border-radius: 30px;
+            color: #f0d5a6;
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .portada-galeria h1 {
+            margin: 0 0 18px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 600;
+            line-height: 1.12;
+        }
+
+        .portada-galeria h1 span {
+            color: #e7c99d;
+        }
+
+        .portada-galeria p {
+            max-width: 690px;
+            margin: auto;
+            color: #f6e9e5;
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+
+        .linea-dorada {
+            width: 80px;
+            height: 3px;
+            background: var(--dorado);
+            margin: 25px auto;
+            border-radius: 5px;
+        }
+
+        /* CONTENIDO */
+        .galeria-pagina {
+            width: min(1200px, 92%);
+            margin: auto;
+            padding: 60px 0;
+        }
+
+        .introduccion {
+            max-width: 760px;
+            text-align: center;
+            margin: 0 auto 55px;
+        }
+
+        .introduccion h2 {
+            color: var(--vino);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin: 0 0 15px;
+        }
+
+        .introduccion p {
+            line-height: 1.9;
+            color: #6c5b57;
+            margin: 0;
+        }
+
+        .galeria-seccion {
+            margin-bottom: 65px;
+        }
+
+        .seccion-titulo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 25px;
+        }
+
+        .numero-seccion {
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: var(--vino);
+            color: #f0d5a6;
+            font-family: Georgia, serif;
+            font-size: 1.25rem;
+        }
+
+        .seccion-titulo h2 {
+            color: var(--vino);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            margin: 0 0 5px;
+        }
+
+        .seccion-titulo p {
+            margin: 0;
+            color: #796a64;
+            line-height: 1.6;
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        /* TARJETAS */
+        .galeria-tarjeta {
+            min-width: 0;
+            overflow: hidden;
+            background: white;
+            border: 1px solid #e9ddcf;
+            border-radius: 15px;
+            box-shadow: 0 7px 24px #4518200c;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .galeria-tarjeta:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 16px 34px #45182020;
+        }
+
+        .foto-contenedor {
+            position: relative;
+            overflow: hidden;
+            height: 230px;
+            background: #e8ddd0;
+        }
+
+        .foto-contenedor img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s ease;
+        }
+
+        .galeria-tarjeta:hover .foto-contenedor img {
+            transform: scale(1.06);
+        }
+
+        .foto-contenedor::after {
+            content: "";
+            position: absolute;
+            inset: 55% 0 0;
+            background: linear-gradient(transparent, #24101545);
+            pointer-events: none;
+        }
+
+        .galeria-texto {
+            position: relative;
+            padding: 21px 20px 23px;
+            border-top: 3px solid var(--dorado);
+        }
+
+        .categoria {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: var(--vino);
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+        }
+
+        .galeria-texto h3 {
+            margin: 0 0 10px;
+            color: var(--vino-oscuro);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.25rem;
+        }
+
+        .galeria-texto p {
+            margin: 0;
+            color: #70625c;
+            font-size: .94rem;
+            line-height: 1.8;
+        }
+
+        /* NOTA FINAL */
+        .galeria-nota {
+            position: relative;
+            overflow: hidden;
+            padding: 30px;
+            background: var(--beige);
+            border: 1px solid #e4d1b9;
+            border-left: 5px solid var(--vino);
+            border-radius: 12px;
+            line-height: 1.9;
+        }
+
+        .galeria-nota strong {
+            color: var(--vino);
+        }
+
+        .galeria-nota p {
+            margin: 8px 0 0;
+        }
+
+        /* PIE DE PÁGINA */
+        .pie-galeria {
+            background: var(--vino-oscuro);
+            color: #f7eae4;
+            text-align: center;
+            padding: 30px 20px;
+            line-height: 1.8;
+        }
+
+        .pie-galeria p {
+            margin: 5px 0;
+        }
+
+        .pie-galeria a {
+            color: #f0d5a6;
+            text-decoration: none;
+        }
+
+        .pie-galeria a:hover {
+            text-decoration: underline;
+        }
+
+        /* TABLET */
+        @media (max-width: 950px) {
+            .menu {
+                flex-wrap: wrap;
+            }
+
+            #menuToggle {
+                display: block;
+            }
+
+            #enlaces {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            #enlaces.menu-abierto {
+                display: flex;
+            }
+
+            #enlaces a {
+                padding: 12px;
+            }
+
+            .galeria-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        /* CELULAR */
+        @media (max-width: 580px) {
+            .portada-galeria {
+                padding: 65px 18px;
+            }
+
+            .portada-galeria p {
+                font-size: .96rem;
+            }
+
+            .galeria-pagina {
+                width: 91%;
+                padding: 40px 0;
+            }
+
+            .introduccion {
+                margin-bottom: 40px;
+            }
+
+            .galeria-seccion {
+                margin-bottom: 45px;
+            }
+
+            .seccion-titulo {
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .numero-seccion {
+                width: 40px;
+                height: 40px;
+            }
+
+            .galeria-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+
+            .foto-contenedor {
+                height: 245px;
+            }
+
+            .galeria-nota {
+                padding: 22px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="site-header">
+    <nav class="menu" aria-label="Navegación principal">
+        <a href="../index.html" class="logo">ITACE <span>Reynosa</span></a>
+
+        <button id="menuToggle" type="button"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="enlaces">
+            ☰
+        </button>
+
+        <div id="enlaces">
+            <a href="../index.html">Inicio</a>
+            <a href="conocenos.html">Conócenos</a>
+            <a href="oferta-educativa.html">Oferta educativa</a>
+            <a href="instalaciones.html">Instalaciones</a>
+            <a href="vida-estudiantil.html">Vida estudiantil</a>
+            <a href="docentes.html">Docentes</a>
+            <a href="galeria.html" aria-current="page">Galería</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+    </nav>
+</header>
+
+<section class="portada-galeria">
+    <div class="portada-contenido">
+        <span class="etiqueta">ITACE DIGITAL 4.0</span>
+        <h1>Galería <span>multimedia</span></h1>
+        <div class="linea-dorada"></div>
+        <p>
+            Cada espacio guarda una historia y cada experiencia deja una huella.
+            Descubre las instalaciones, las actividades y los momentos que
+            forman parte de la comunidad del ITACE Plantel Reynosa.
+        </p>
+    </div>
+</section>
+
+<main class="galeria-pagina">
+
+    <section class="introduccion">
+        <h2>Un recorrido por nuestra comunidad</h2>
+        <p>
+            Esta colección reúne fotografías de espacios escolares y actividades
+            que reflejan la convivencia, la identidad institucional y el entorno
+            donde los estudiantes desarrollan sus conocimientos y habilidades.
+        </p>
+    </section>
+
+    <!-- SECCIÓN 1 -->
+    <section class="galeria-seccion">
+        <div class="seccion-titulo">
+            <span class="numero-seccion">01</span>
+            <div>
+                <h2>Instalaciones del plantel</h2>
+                <p>Conoce los espacios que forman parte de nuestra institución.</p>
+            </div>
+        </div>
+
+        <div class="galeria-grid">
+
+            <article class="galeria-tarjeta">
+                <div class="foto-contenedor">
+                    <img src="../imagenes/entrada.jpeg" alt="Entrada principal del ITACE Plantel Reynosa" loading="lazy">
+                </div>
+                <div class="galeria-texto">
+                    <span class="categoria">Nuestra institución</span>
+                    <h3>Entrada del plantel</h3>
+                    <p>El acceso a nuestra institución, punto de encuentro para estudiantes, docentes y visitantes.</p>
+                </div>
+            </article>
+
+            <article class="galeria-tarjeta">
+                <div class="foto-contenedor">
+                    <img src="../imagenes/comedor.jpeg" alt="Área de comedor escolar" loading="lazy">
+                </div>
+                <div class="galeria-texto">
+                    <span class="categoria">Convivencia</span>
+                    <h3>Comedor escolar</h3>
+                    <p>Un espacio para hacer una pausa durante la jornada y compartir momentos con los compañeros.</p>
+                </div>
+            </article>
+
+            <article class="galeria-tarjeta">
+                <div class="foto-contenedor">
+                    <img src="../imagenes/explanada.jpeg" alt="Explanada del plantel educativo" loading="lazy">
+                </div>
+                <div class="galeria-texto">
+                    <span class="categoria">Espacios escolares</span>
+                    <h3>Explanada escolar</h3>
+                    <p>Un área abierta que forma parte de las instalaciones y puede servir para actividades de la comunidad.</p>
+                </div>
+            </article>
+
+            <article class="galeria-tarjeta">
+                <div class="foto-contenedor">
+                    <img src="../imagenes/explanada2.jpeg" alt="Vista adicional de la explanada" loading="lazy">
+                </div>
+                <div class="galeria-texto">
+                    <span class="categoria">Vida diaria</span>
+                    <h3>Espacios de encuentro</h3>
+                    <p>Una segunda vista de los espacios abiertos del plantel y de su entorno cotidiano.</p>
+                </div>
+            </article>
+
+            <article class="galeria-tarjeta">
+                <div class="foto-contenedor">
+                    <img src="../imagenes/jardin.jpeg" alt="Jardín o área verde del plantel" loading="lazy">
+                </div>
+                <div class="galeria-texto">
+                    <span class="categoria">Entorno escolar</span>
+                    <h3>Áreas verdes</h3>
+                    <p>Los espacios al aire libre contribuyen a crear un entorno agradable para la comunidad escolar.</p>
+                </div>
+            </article>
+
+            <article class="galeria-tarjeta">
+                <div class="foto-contenedor">
+                    <img src="../imagenes/pasillo.jpeg" alt="Pasillo de las instalaciones escolares" loading="lazy">
+                </div>
+                <div class="galeria-texto">
+                    <span class="categoria">Instalaciones</span>
+                    <h3>Pasillos escolares</h3>
+                    <p>Áreas de circulación que conectan distintos espacios de la institución durante la jornada.</p>
+                </div>
+            </article>
+
+            <article class="galeria-tarjeta">
+                <div class="foto-contenedor">
+                    <img src="../imagenes/oficinas el plantel.jpeg" alt="Oficinas del plantel" loading="lazy">
+                </div>
+                <div class="galeria-texto">
+                    <span class="categoria">Administración</span>
+                    <h3>Oficinas del plantel</h3>
+                    <p>Espacios destinados a las actividades administrativas y a la atención de la comunidad educativa.</p>
+                </div>
+            </article>
+
+            <article class="galeria-tarjeta">
+                <div class="foto-contenedor">
+                    <img src="../imagenes/laboratorio.jpeg" alt="Laboratorio escolar" loading="lazy">
+                </div>
+                <div class="galeria-texto">
+                    <span class="categoria">Aprendizaje</span>
+                    <h3>Laboratorio escolar</h3>
+                    <p>Un espacio relacionado con el aprendizaje práctico y el desarrollo de habilidades técnicas.</p>
+                </div>
+            </article>
+
+            <article class="galeria-tarjeta">
+                <div class="foto-contenedor">
+                    <img src="../imagenes/plaza del estudiante.jpeg" alt="Plaza del estudiante" loading="lazy">
+                </div>
+                <div class="galeria-texto">
+                    <span class="categoria">Comunidad estudiantil</span>
+                    <h3>Plaza del estudiante</h3>
+                    <p>Un espacio de encuentro que forma parte de la experiencia diaria de los alumnos.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2 -->
+    <section class="galeria-seccion">
+        <div class="seccion-titulo">
+            <span class="numero-seccion">02</span>
+            <div>
+                <h2>Eventos y tradiciones</h2>
+                <p>Momentos de participación, identidad y convivencia.</p>
+            </div>
+        </div>
+
+        <div class="galeria-grid">
+
+            <article class="galeria-tarjeta">
+                <div class="foto-contenedor">
+                    <img src="../imagenes/festival.jpeg" alt="Festival o actividad escolar" loading="lazy">
+                </div>
+                <div class="galeria-texto">
+                    <span class="categoria">Eventos escolares</span>
+                    <h3>Festivales escolares</h3>
+                    <p>Actividades que ofrecen oportunidades para convivir, participar y compartir experiencias con la comunidad.</p>
+                </div>
+            </article>
+
+            <article class="galeria-tarjeta">
+                <div class="foto-contenedor">
+                    <img src="../imagenes/festival navideño.jpeg" alt="Actividad del festival navideño" loading="lazy">
+                </div>
+                <div class="galeria-texto">
+                    <span class="categoria">Tradiciones</span>
+                    <h3>Festival navideño</h3>
+                    <p>Un momento para celebrar, compartir y disfrutar de las actividades propias de la temporada navideña.</p>
+                </div>
+            </article>
+
+            <article class="galeria-tarjeta">
+                <div class="foto-contenedor">
+                    <img src="../imagenes/honores.jpeg" alt="Ceremonia de honores cívicos" loading="lazy">
+                </div>
+                <div class="galeria-texto">
+                    <span class="categoria">Civismo</span>
+                    <h3>Honores cívicos</h3>
+                    <p>Actividades que promueven el respeto por los símbolos patrios y los valores cívicos.</p>
+                </div>
+            </article>
+
+            <article class="galeria-tarjeta">
+                <div class="foto-contenedor">
+                    <img src="../imagenes/itace honores.jpeg" alt="Ceremonia cívica en el ITACE" loading="lazy">
+                </div>
+                <div class="galeria-texto">
+                    <span class="categoria">Identidad institucional</span>
+                    <h3>Orgullo ITACE</h3>
+                    <p>Momentos que reflejan el sentido de pertenencia y la participación de la comunidad educativa.</p>
+                </div>
+            </article>
+
+            <article class="galeria-tarjeta">
+                <div class="foto-contenedor">
+                    <img src="../imagenes/banda de guerra.jpeg" alt="Banda de guerra del plantel" loading="lazy">
+                </div>
+                <div class="galeria-texto">
+                    <span class="categoria">Disciplina y equipo</span>
+                    <h3>Banda de guerra</h3>
+                    <p>Una actividad que fomenta la coordinación, la disciplina, el respeto y el trabajo en equipo.</p>
+                </div>
+            </article>
+
+            <article class="galeria-tarjeta">
+                <div class="foto-contenedor">
+                    <img src="../imagenes/feria infantil.jpeg" alt="Espacio relacionado con la feria infantil" loading="lazy">
+                </div>
+                <div class="galeria-texto">
+                    <span class="categoria">Actividades estudiantiles</span>
+                    <h3>Preparación y organización</h3>
+                    <p>Un espacio relacionado con la preparación de materiales y las actividades de la banda de guerra.</p>
+                </div>
+            </article>
+
+            <article class="galeria-tarjeta">
+                <div class="foto-contenedor">
+                    <img src="../imagenes/presentaciones.jpeg" alt="Presentaciones frente a la comunidad escolar" loading="lazy">
+                </div>
+                <div class="galeria-texto">
+                    <span class="categoria">Talento estudiantil</span>
+                    <h3>Presentaciones escolares</h3>
+                    <p>Actividades para compartir talentos, conocimientos y experiencias frente a la comunidad educativa.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <aside class="galeria-nota">
+        <strong>Acerca de esta galería</strong>
+        <p>
+            Esta sección forma parte de la propuesta académica ITACE DIGITAL 4.0.
+            Las imágenes y descripciones deben representar fielmente los espacios
+            y las actividades que aparecen en las fotografías. El uso de imágenes
+            de personas debe contar con la autorización correspondiente.
+        </p>
+    </aside>
+
+</main>
+
+<footer class="pie-galeria">
+    <p><strong>ITACE DIGITAL 4.0</strong></p>
+    <p>Propuesta académica · Plantel Reynosa</p>
+    <p><a href="../index.html">← Volver al inicio</a></p>
+</footer>
+
+<script>
+    /* Menú adaptable para celular */
+    const botonMenu = document.getElementById("menuToggle");
+    const enlacesMenu = document.getElementById("enlaces");
+
+    if (botonMenu && enlacesMenu) {
+        botonMenu.addEventListener("click", function () {
+            const abierto = enlacesMenu.classList.toggle("menu-abierto");
+            botonMenu.setAttribute("aria-expanded", abierto ? "true" : "false");
+            botonMenu.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú");
+            botonMenu.textContent = abierto ? "✕" : "☰";
+        });
+    }
+</script>
+
+</body>
+</html>

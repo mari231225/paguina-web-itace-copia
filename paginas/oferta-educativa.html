@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Oferta Educativa | ITACE Reynosa</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .oferta-pagina {
+            padding: 60px 7%;
+            background: #f8f1e8;
+            min-height: 80vh;
+        }
+
+        .oferta-encabezado {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .oferta-encabezado span {
+            color: #9b7653;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .oferta-encabezado h1 {
+            color: #702632;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin: 15px 0;
+        }
+
+        .oferta-encabezado p {
+            color: #594943;
+            line-height: 1.8;
+        }
+
+        .oferta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .oferta-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #e7d8c8;
+            box-shadow: 0 8px 22px rgba(69, 24, 32, .10);
+            transition: transform .25s ease;
+        }
+
+        .oferta-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .oferta-card img {
+            display: block;
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            background: #eadfD2;
+        }
+
+        .oferta-card-contenido {
+            padding: 22px;
+        }
+
+        .oferta-card h2 {
+            color: #702632;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .oferta-card p {
+            color: #594943;
+            line-height: 1.7;
+        }
+
+        .oferta-nota {
+            text-align: center;
+            color: #594943;
+            max-width: 800px;
+            line-height: 1.7;
+            margin: 35px auto 0;
+        }
+
+        .oferta-volver {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #702632;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+
+        .oferta-volver:hover {
+            background: #451820;
+        }
+
+        @media (max-width: 900px) {
+            .oferta-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .oferta-pagina {
+                padding: 40px 5%;
+            }
+
+            .oferta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .oferta-card img {
+                height: 220px;
+            }
+        }
+
+        /* CORRECCIÓN DEL MENÚ EN TODAS LAS PÁGINAS */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #351219;
+}
+
+.menu {
+    background: #351219;
+}
+
+.logo {
+    color: #ffffff;
+}
+
+.logo span {
+    color: #ead4ae;
+}
+
+.enlaces a {
+    color: #ffffff;
+}
+
+.enlaces a:hover,
+.enlaces a:focus-visible {
+    background: #c5a16f;
+    color: #351219;
+}
+
+.menu-toggle {
+    color: #ffffff;
+    border-color: #c5a16f;
+}
+
+/* Menú para teléfonos */
+@media (max-width: 700px) {
+    .enlaces.activo {
+        display: flex;
+        background: #351219;
+    }
+
+    .enlaces a {
+        color: #ffffff;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav class="menu">
+        <a href="../index.html" class="logo">
+            ITACE <span>REYNOSA</span>
+        </a>
+
+        <div class="enlaces">
+            <a href="../index.html">Inicio</a>
+            <a href="conocenos.html">Conócenos</a>
+            <a href="#especialidades">Especialidades</a>
+        </div>
+    </nav>
+</header>
+
+<main class="oferta-pagina">
+
+    <section class="oferta-encabezado">
+        <span>FORMACIÓN PARA EL FUTURO</span>
+        <h1>Oferta educativa</h1>
+        <p>
+            Conoce las áreas de formación técnica presentadas en
+            nuestra propuesta académica para el ITACE Plantel Reynosa.
+            Cada especialidad permite explorar conocimientos y
+            desarrollar habilidades en diferentes campos.
+        </p>
+    </section>
+
+    <section class="oferta-grid" id="especialidades">
+
+        <article class="oferta-card">
+            <img src="../imagenes/mantenimiento industrial.jfif"
+                 alt="Mantenimiento industrial">
+            <div class="oferta-card-contenido">
+                <h2>Mantenimiento Industrial</h2>
+                <p>
+                    Conoce el funcionamiento de máquinas y equipos,
+                    la identificación de fallas y las tareas de
+                    mantenimiento industrial.
+                </p>
+            </div>
+        </article>
+
+        <article class="oferta-card">
+            <img src="../imagenes/mantenimiento automotris.jpeg"
+                 alt="Mantenimiento automotriz">
+            <div class="oferta-card-contenido">
+                <h2>Mantenimiento Automotriz</h2>
+                <p>
+                    Explora los sistemas de los automóviles, la
+                    detección de fallas y las actividades de
+                    mantenimiento y reparación.
+                </p>
+            </div>
+        </article>
+
+        <article class="oferta-card">
+            <img src="../imagenes/diseño grafico.jfif"
+                 alt="Diseño gráfico digital">
+            <div class="oferta-card-contenido">
+                <h2>Diseño Gráfico Digital</h2>
+                <p>
+                    Descubre cómo crear carteles, anuncios,
+                    ilustraciones y propuestas visuales mediante
+                    herramientas digitales.
+                </p>
+            </div>
+        </article>
+
+        <article class="oferta-card">
+            <img src="../imagenes/ciberseguridad.jfif"
+                 alt="Ciberseguridad">
+            <div class="oferta-card-contenido">
+                <h2>Ciberseguridad</h2>
+                <p>
+                    Aprende sobre la protección de datos, redes y
+                    equipos, así como la identificación de riesgos
+                    en entornos digitales.
+                </p>
+            </div>
+        </article>
+
+        <article class="oferta-card">
+            <img src="../imagenes/Semiconductores y Microelectrónica.jfif"
+                 alt="Semiconductores y microelectrónica">
+            <div class="oferta-card-contenido">
+                <h2>Semiconductores y Microelectrónica</h2>
+                <p>
+                    Explora los componentes electrónicos, los
+                    microchips y los principios de funcionamiento
+                    de los circuitos.
+                </p>
+            </div>
+        </article>
+
+        <article class="oferta-card">
+            <img src="../imagenes/inteliencia artificial.webp"
+                 alt="Inteligencia artificial">
+            <div class="oferta-card-contenido">
+                <h2>Inteligencia Artificial</h2>
+                <p>
+                    Conoce tecnologías que analizan información,
+                    reconocen patrones y ayudan a resolver
+                    problemas mediante sistemas inteligentes.
+                </p>
+            </div>
+        </article>
+
+        <article class="oferta-card">
+            <img src="../imagenes/logistica.webp"
+                 alt="Logística">
+            <div class="oferta-card-contenido">
+                <h2>Logística</h2>
+                <p>
+                    Explora la organización de inventarios,
+                    almacenamiento y transporte de productos.
+                </p>
+            </div>
+        </article>
+
+    </section>
+
+    <p class="oferta-nota">
+        Esta página es parte de una propuesta académica no oficial.
+        Consulta los canales institucionales para verificar la oferta
+        educativa vigente.
+        <br>
+        <a href="../index.html" class="oferta-volver">
+            Volver al inicio
+        </a>
+    </p>
+
+</main>
+
+<footer class="site-footer">
+    <p>ITACE Plantel Reynosa · Propuesta académica no oficial</p>
+    <p>Proyecto escolar · Grupo 502 B · 2026</p>
+</footer>
+
+</body>
+</html>

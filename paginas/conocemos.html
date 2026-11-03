@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conoce la identidad, misión, visión y valores del ITACE Plantel Reynosa.">
+    <title>Conoce al ITACE | Plantel Reynosa</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        :root {
+            --vino: #702632;
+            --vino-oscuro: #451820;
+            --beige: #f3e8d8;
+            --crema: #fffaf3;
+            --dorado: #c4a15a;
+            --texto: #49383a;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 25px;
+        }
+        body {
+            margin: 0;
+            color: var(--texto);
+            background: linear-gradient(180deg, var(--crema), var(--beige));
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.7;
+        }
+        a:focus-visible {
+            outline: 3px solid var(--dorado);
+            outline-offset: 4px;
+        }
+        .portada {
+            padding: 75px 20px;
+            color: white;
+            text-align: center;
+            background: linear-gradient(
+                135deg,
+                rgba(69, 24, 32, .98),
+                rgba(112, 38, 50, .92)
+            );
+            border-bottom: 5px solid var(--dorado);
+        }
+        .etiqueta {
+            display: inline-block;
+            padding: 6px 17px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, .45);
+            border-radius: 30px;
+            color: #fff3d9;
+            font-size: .82rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .portada h1 {
+            max-width: 900px;
+            margin: 0 auto 15px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.3rem, 5vw, 3.8rem);
+            line-height: 1.2;
+        }
+        .portada p {
+            max-width: 760px;
+            margin: 0 auto;
+            color: #f7e9e2;
+            font-size: 1.05rem;
+        }
+        .contenido {
+            width: min(1100px, 92%);
+            margin: 50px auto;
+        }
+        .introduccion {
+            max-width: 850px;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+        .introduccion h2,
+        .titulo-seccion {
+            color: var(--vino);
+            font-family: Georgia, "Times New Roman", serif;
+        }
+        .introduccion h2 {
+            margin-bottom: 12px;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        }
+        .linea-dorada {
+            width: 75px;
+            height: 4px;
+            margin: 18px auto;
+            background: var(--dorado);
+            border-radius: 10px;
+        }
+        .bloque-historia {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 45px;
+            padding: 28px;
+            background: rgba(255, 255, 255, .82);
+            border: 1px solid rgba(112, 38, 50, .12);
+            border-radius: 18px;
+            box-shadow: 0 8px 24px rgba(69, 24, 32, .08);
+        }
+        .bloque-historia h2 {
+            margin-top: 0;
+            color: var(--vino);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 2rem;
+        }
+        .bloque-historia p {
+            margin-bottom: 0;
+        }
+        .imagen-historia {
+            width: 100%;
+            min-height: 260px;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 13px;
+        }
+        .subtitulo {
+            margin: 45px 0 25px;
+            color: var(--vino);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            text-align: center;
+        }
+        .valores-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+        .tarjeta {
+            padding: 27px 23px;
+            background: rgba(255, 255, 255, .9);
+            border: 1px solid rgba(112, 38, 50, .13);
+            border-top: 4px solid var(--dorado);
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(69, 24, 32, .07);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(69, 24, 32, .13);
+        }
+        .tarjeta h3 {
+            margin: 0 0 12px;
+            color: var(--vino);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.45rem;
+        }
+        .tarjeta p {
+            margin: 0;
+        }
+        .centrado {
+            margin: 35px 0;
+            text-align: center;
+        }
+        .boton {
+            display: inline-block;
+            padding: 12px 25px;
+            color: white;
+            background: var(--vino);
+            border: 2px solid var(--vino);
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background .2s ease, color .2s ease;
+        }
+        .boton:hover {
+            color: var(--vino);
+            background: transparent;
+        }
+        footer {
+            padding: 25px 15px;
+            color: #f9eee5;
+            background: var(--vino-oscuro);
+            text-align: center;
+            font-size: .9rem;
+        }
+        footer p {
+            margin: 5px;
+        }
+        @media (max-width: 800px) {
+            .bloque-historia {
+                grid-template-columns: 1fr;
+            }
+            .valores-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .imagen-historia {
+                min-height: 220px;
+            }
+        }
+        @media (max-width: 520px) {
+            .portada {
+                padding: 52px 18px;
+            }
+            .contenido {
+                margin: 32px auto;
+            }
+            .bloque-historia {
+                padding: 21px;
+            }
+            .valores-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="portada">
+        <span class="etiqueta">ITACE · Plantel Reynosa</span>
+        <h1>Conoce al ITACE</h1>
+        <p>
+            Conoce la identidad, la formación técnica y los valores que
+            forman parte de nuestra comunidad educativa.
+        </p>
+    </header>
+    <main class="contenido">
+        <section class="introduccion">
+            <h2>Una comunidad que impulsa el aprendizaje</h2>
+            <div class="linea-dorada"></div>
+            <p>
+                El Instituto Tamaulipeco de Capacitación para el Empleo
+                (ITACE) forma parte del ámbito de la capacitación y la
+                formación técnica en Tamaulipas. Esta página presenta
+                una introducción a su identidad y a la importancia de
+                la educación para el desarrollo académico y profesional.
+            </p>
+        </section>
+        <section class="bloque-historia">
+            <div>
+                <h2>Nuestra historia</h2>
+                <p>
+                    La historia del plantel, sus antecedentes, sus logros
+                    y su trayectoria son elementos importantes para
+                    comprender su contribución a la comunidad.
+                </p>
+                <p>
+                    Para completar esta sección, se debe incorporar una
+                    reseña histórica del ITACE Plantel Reynosa verificada
+                    mediante fuentes institucionales autorizadas.
+                </p>
+            </div>
+            <img
+                class="imagen-historia"
+                src="../imagenes/entrada.jpeg"
+                alt="Entrada del plantel educativo"
+                loading="lazy"
+            >
+        </section>
+        <h2 class="subtitulo">Nuestra identidad</h2>
+        <section class="valores-grid" aria-label="Misión, visión y valores">
+            <article class="tarjeta">
+                <h3>Misión</h3>
+                <p>
+                    Este apartado debe presentar la misión institucional
+                    oficial, respetando su redacción y significado
+                    originales.
+                </p>
+            </article>
+            <article class="tarjeta">
+                <h3>Visión</h3>
+                <p>
+                    Este apartado debe incluir la visión institucional
+                    autorizada y la perspectiva del ITACE sobre su
+                    desarrollo y su contribución educativa.
+                </p>
+            </article>
+            <article class="tarjeta">
+                <h3>Valores</h3>
+                <p>
+                    El respeto, la responsabilidad, la honestidad,
+                    la colaboración y el compromiso pueden orientar
+                    la convivencia escolar. Verifica cuáles son los
+                    valores oficiales antes de presentarlos como tales.
+                </p>
+            </article>
+        </section>
+        <div class="centrado">
+            <a href="../index.html" class="boton">
+                Volver al inicio
+            </a>
+        </div>
+    
+    </main>
+    <footer>
+        <p><strong>ITACE Plantel Reynosa</strong></p>
+        <p>Proyecto académico ITACE DIGITAL 4.0 · Propuesta no oficial</p>
+    </footer>
+</body>
+</html>

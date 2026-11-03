@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conoce la vida estudiantil, actividades y experiencias de la comunidad ITACE Plantel Reynosa.">
+    <meta name="theme-color" content="#702632">
+    <title>Vida estudiantil | ITACE Reynosa</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        :root {
+            --vino: #702632;
+            --vino-oscuro: #451820;
+            --vino-claro: #923c4a;
+            --beige: #f3e8d8;
+            --crema: #fffaf4;
+            --texto: #44363a;
+            --dorado: #c5a36a;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+        body {
+            margin: 0;
+            font-family: "Trebuchet MS", Arial, sans-serif;
+            color: var(--texto);
+            background: var(--crema);
+            line-height: 1.7;
+        }
+        a {
+            color: inherit;
+        }
+        .pagina-vida {
+            overflow: hidden;
+        }
+        /* ENCABEZADO */
+        .encabezado-vida {
+            background: var(--vino-oscuro);
+            color: white;
+            padding: 13px 6%;
+            border-bottom: 3px solid var(--dorado);
+        }
+        .barra-vida {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 22px;
+        }
+        .marca-vida {
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .marca-vida span {
+            display: block;
+            color: #e3c99e;
+            font-size: .72rem;
+            letter-spacing: 2px;
+            font-weight: normal;
+        }
+        .nav-vida {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .nav-vida a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 11px;
+            border-radius: 7px;
+            font-size: .91rem;
+            transition: background .25s, color .25s;
+        }
+        .nav-vida a:hover,
+        .nav-vida a:focus-visible {
+            background: var(--dorado);
+            color: var(--vino-oscuro);
+            outline: none;
+        }
+        /* PORTADA */
+        .portada-vida {
+            min-height: 440px;
+            padding: 85px 7%;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(100deg,
+                    rgba(55, 17, 25, .94),
+                    rgba(112, 38, 50, .77)),
+                url("../imagenes/festival.jpeg") center/cover no-repeat;
+            color: white;
+        }
+        .contenido-portada {
+            max-width: 850px;
+            margin: auto;
+            width: 100%;
+        }
+        .etiqueta {
+            display: inline-block;
+            color: #f1d8aa;
+            border: 1px solid rgba(241, 216, 170, .65);
+            border-radius: 30px;
+            padding: 6px 15px;
+            font-size: .8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .portada-vida h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.13;
+            margin: 22px 0;
+            max-width: 780px;
+        }
+        .portada-vida p {
+            font-size: 1.08rem;
+            max-width: 680px;
+            color: #f8eee7;
+        }
+        .boton-vida {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 12px 23px;
+            background: var(--dorado);
+            color: var(--vino-oscuro);
+            border-radius: 7px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform .25s, background .25s;
+        }
+        .boton-vida:hover {
+            background: #ead2a8;
+            transform: translateY(-3px);
+        }
+        /* CONTENIDO GENERAL */
+        .seccion-vida {
+            max-width: 1200px;
+            margin: auto;
+            padding: 75px 6%;
+        }
+        .encabezado-seccion {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 40px;
+        }
+        .subtitulo {
+            color: var(--vino);
+            font-size: .8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .encabezado-seccion h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            color: var(--vino-oscuro);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            line-height: 1.2;
+            margin: 10px 0 15px;
+        }
+        .encabezado-seccion p {
+            margin: 0;
+            color: #6b5a5d;
+        }
+        /* TARJETAS */
+        .tarjetas-vida {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+        }
+        .tarjeta-vida {
+            background: white;
+            border: 1px solid #eaded4;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(69, 24, 32, .07);
+            transition: transform .3s, box-shadow .3s;
+        }
+        .tarjeta-vida:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 32px rgba(69, 24, 32, .14);
+        }
+        .imagen-tarjeta {
+            height: 225px;
+            background: var(--beige);
+            overflow: hidden;
+        }
+        .imagen-tarjeta img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .45s;
+        }
+        .tarjeta-vida:hover .imagen-tarjeta img {
+            transform: scale(1.05);
+        }
+        .texto-tarjeta {
+            padding: 24px;
+        }
+        .numero-tarjeta {
+            color: var(--vino-claro);
+            font-size: .78rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .texto-tarjeta h3 {
+            color: var(--vino-oscuro);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.35rem;
+            margin: 8px 0 10px;
+        }
+        .texto-tarjeta p {
+            color: #6b5a5d;
+            margin: 0;
+            font-size: .96rem;
+        }
+        /* MENSAJE INSTITUCIONAL */
+        .franja-vida {
+            background: var(--beige);
+            padding: 65px 6%;
+        }
+        .contenido-franja {
+            max-width: 1050px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            align-items: center;
+            gap: 45px;
+        }
+        .adorno-franja {
+            min-height: 260px;
+            border-radius: 15px;
+            background:
+                linear-gradient(rgba(69, 24, 32, .25),
+                                rgba(69, 24, 32, .25)),
+                url("../imagenes/plaza del estudiante.jpeg") center/cover no-repeat;
+            border: 5px solid white;
+            box-shadow: 0 10px 25px rgba(69, 24, 32, .12);
+        }
+        .texto-franja h2 {
+            color: var(--vino-oscuro);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(1.9rem, 4vw, 2.6rem);
+            line-height: 1.2;
+            margin: 12px 0 18px;
+        }
+        .texto-franja p {
+            color: #5f5051;
+        }
+        .lista-valores {
+            list-style: none;
+            padding: 0;
+            margin: 22px 0 0;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+        .lista-valores li {
+            background: rgba(255, 255, 255, .72);
+            border-left: 4px solid var(--vino);
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: var(--vino-oscuro);
+        }
+        /* INVITACIÓN FINAL */
+        .cierre-vida {
+            padding: 70px 6%;
+            text-align: center;
+            background: var(--vino);
+            color: white;
+        }
+        .cierre-vida h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin: 0 0 15px;
+        }
+        .cierre-vida p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #f5e6e5;
+        }
+        .enlaces-finales {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 13px;
+            margin-top: 25px;
+        }
+        .enlaces-finales a {
+            display: inline-block;
+            padding: 11px 20px;
+            border: 1px solid #e7cda0;
+            border-radius: 7px;
+            color: white;
+            text-decoration: none;
+            transition: background .25s, color .25s;
+        }
+        .enlaces-finales a:hover {
+            background: var(--dorado);
+            color: var(--vino-oscuro);
+        }
+        /* PIE DE PÁGINA */
+        .pie-vida {
+            padding: 23px 6%;
+            text-align: center;
+            background: var(--vino-oscuro);
+            color: #e9d9d4;
+            font-size: .88rem;
+        }
+        .pie-vida p {
+            margin: 5px 0;
+        }
+        .pie-vida a {
+            color: #f1d8aa;
+        }
+        .aviso-vida {
+            max-width: 900px;
+            margin: 12px auto 0;
+            font-size: .78rem;
+            color: #d9c3bd;
+        }
+        /* ACCESIBILIDAD Y CELULARES */
+        a:focus-visible {
+            outline: 3px solid var(--dorado);
+            outline-offset: 4px;
+        }
+        @media (max-width: 850px) {
+            .barra-vida {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-vida {
+                justify-content: flex-start;
+            }
+            .tarjetas-vida {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .contenido-franja {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .adorno-franja {
+                min-height: 300px;
+            }
+        }
+        @media (max-width: 560px) {
+            .encabezado-vida {
+                padding: 15px 5%;
+            }
+            .nav-vida {
+                gap: 5px;
+            }
+            .nav-vida a {
+                padding: 7px 8px;
+                font-size: .82rem;
+            }
+            .portada-vida {
+                min-height: 390px;
+                padding: 60px 7%;
+            }
+            .portada-vida p {
+                font-size: 1rem;
+            }
+            .seccion-vida {
+                padding: 55px 5%;
+            }
+            .tarjetas-vida {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .imagen-tarjeta {
+                height: 230px;
+            }
+            .franja-vida {
+                padding: 50px 5%;
+            }
+            .adorno-franja {
+                min-height: 220px;
+            }
+            .lista-valores {
+                grid-template-columns: 1fr;
+            }
+            .cierre-vida {
+                padding: 55px 6%;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+                animation-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="pagina-vida">
+    <!-- ENCABEZADO -->
+    <header class="encabezado-vida">
+        <div class="barra-vida">
+            <a class="marca-vida" href="../index.html">
+                ITACE
+                <span>PLANTEL REYNOSA</span>
+            </a>
+            <nav class="nav-vida" aria-label="Navegación principal">
+                <a href="../index.html">Inicio</a>
+                <a href="conocenos.html">Conócenos</a>
+                <a href="oferta-educativa.html">Carreras</a>
+                <a href="instalaciones.html">Instalaciones</a>
+                <a href="galeria.html">Galería</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <!-- PORTADA -->
+        <section class="portada-vida" aria-labelledby="titulo-vida">
+            <div class="contenido-portada">
+                <span class="etiqueta">Comunidad estudiantil</span>
+                <h1 id="titulo-vida">
+                    Una experiencia que va más allá del aula
+                </h1>
+                <p>
+                    Ser parte del ITACE significa aprender, compartir experiencias,
+                    desarrollar habilidades y construir recuerdos que acompañan
+                    nuestro crecimiento académico y personal.
+                </p>
+                <a class="boton-vida" href="#experiencias">
+                    Descubre nuestra comunidad
+                </a>
+            </div>
+        </section>
+        <!-- INTRODUCCIÓN -->
+        <section class="seccion-vida" id="experiencias">
+            <div class="encabezado-seccion">
+                <span class="subtitulo">Nuestra comunidad</span>
+                <h2>Aprender también es vivir experiencias</h2>
+                <p>
+                    La etapa estudiantil ofrece oportunidades para descubrir
+                    intereses, convivir con otras personas y poner en práctica
+                    lo aprendido. Estas son algunas áreas que forman parte de
+                    la experiencia escolar.
+                </p>
+            </div>
+            <div class="tarjetas-vida">
+                <!-- ACTIVIDADES CULTURALES -->
+                <article class="tarjeta-vida">
+                    <div class="imagen-tarjeta">
+                        <img
+                            src="../imagenes/festival.jpeg"
+                            alt="Actividad o festival escolar"
+                            loading="lazy">
+                    </div>
+                    <div class="texto-tarjeta">
+                        <span class="numero-tarjeta">01 / CULTURA</span>
+                        <h3>Actividades culturales</h3>
+                        <p>
+                            Los festivales y las expresiones artísticas permiten
+                            compartir talentos, conocer distintas tradiciones
+                            y fortalecer la convivencia escolar.
+                        </p>
+                    </div>
+                </article>
+                <!-- CONVIVENCIA -->
+                <article class="tarjeta-vida">
+                    <div class="imagen-tarjeta">
+                        <img
+                            src="../imagenes/amistad.jpeg"
+                            alt="Espacio de convivencia estudiantil"
+                            loading="lazy">
+                    </div>
+                    <div class="texto-tarjeta">
+                        <span class="numero-tarjeta">02 / CONVIVENCIA</span>
+                        <h3>Amistad y compañerismo</h3>
+                        <p>
+                            Compartir las actividades diarias ayuda a desarrollar
+                            el respeto, la comunicación, la colaboración y el
+                            sentido de pertenencia.
+                        </p>
+                    </div>
+                </article>
+                <!-- CEREMONIAS -->
+                <article class="tarjeta-vida">
+                    <div class="imagen-tarjeta">
+                        <img
+                            src="../imagenes/honores.jpeg"
+                            alt="Ceremonia de honores escolares"
+                            loading="lazy">
+                    </div>
+                    <div class="texto-tarjeta">
+                        <span class="numero-tarjeta">03 / IDENTIDAD</span>
+                        <h3>Valores y tradiciones</h3>
+                        <p>
+                            Las ceremonias escolares son espacios para promover
+                            el respeto, la responsabilidad y la valoración de
+                            nuestros símbolos y tradiciones.
+                        </p>
+                    </div>
+                </article>
+                <!-- PARTICIPACIÓN -->
+                <article class="tarjeta-vida">
+                    <div class="imagen-tarjeta">
+                        <img
+                            src="../imagenes/presentaciones.jpeg"
+                            alt="Presentación realizada en un evento escolar"
+                            loading="lazy">
+                    </div>
+                    <div class="texto-tarjeta">
+                        <span class="numero-tarjeta">04 / PARTICIPACIÓN</span>
+                        <h3>Talento y expresión</h3>
+                        <p>
+                            Participar en presentaciones y actividades permite
+                            practicar la creatividad, la expresión oral y la
+                            confianza al trabajar en equipo.
+                        </p>
+                    </div>
+                </article>
+                <!-- ESPACIOS -->
+                <article class="tarjeta-vida">
+                    <div class="imagen-tarjeta">
+                        <img
+                            src="../imagenes/explanada.jpeg"
+                            alt="Explanada del plantel escolar"
+                            loading="lazy">
+                    </div>
+                    <div class="texto-tarjeta">
+                        <span class="numero-tarjeta">05 / ESPACIOS</span>
+                        <h3>Espacios para convivir</h3>
+                        <p>
+                            Las áreas comunes forman parte de la vida cotidiana
+                            del plantel y pueden favorecer la convivencia entre
+                            estudiantes durante la jornada escolar.
+                        </p>
+                    </div>
+                </article>
+                <!-- APRENDIZAJE -->
+                <article class="tarjeta-vida">
+                    <div class="imagen-tarjeta">
+                        <img
+                            src="../imagenes/aprendizaje.jpeg"
+                            alt="Aprendizaje"
+                            loading="lazy">
+                    </div>
+                    <div class="texto-tarjeta">
+                        <span class="numero-tarjeta">06 / APRENDIZAJE</span>
+                        <h3>Aprendizaje práctico</h3>
+                        <p>
+                            Los espacios de práctica complementan los contenidos
+                            de clase y ayudan a relacionar los conocimientos
+                            con situaciones y actividades técnicas.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- VALORES -->
+        <section class="franja-vida">
+            <div class="contenido-franja">
+                <div class="adorno-franja"
+                     role="img"
+                     aria-label="Área común del plantel"></div>
+                <div class="texto-franja">
+                    <span class="subtitulo">Crecer juntos</span>
+                    <h2>Los valores también forman parte del aprendizaje</h2>
+                    <p>
+                        La formación estudiantil no se limita a los conocimientos
+                        técnicos. La convivencia diaria también ofrece
+                        oportunidades para practicar valores que ayudan a
+                        construir una comunidad respetuosa y colaborativa.
+                    </p>
+                    <ul class="lista-valores">
+                        <li>Respeto</li>
+                        <li>Responsabilidad</li>
+                        <li>Trabajo en equipo</li>
+                        <li>Honestidad</li>
+                        <li>Solidaridad</li>
+                        <li>Compromiso</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- CIERRE -->
+        <section class="cierre-vida">
+            <h2>¡El orgullo de formar parte del ITACE!</h2>
+            <p>
+                Cada experiencia escolar puede convertirse en una oportunidad
+                para aprender, descubrir habilidades y prepararse para nuevos
+                retos académicos y profesionales.
+            </p>
+            <div class="enlaces-finales">
+                <a href="galeria.html">Explorar la galería</a>
+                <a href="oferta-educativa.html">Conocer las carreras</a>
+                <a href="../index.html">Volver al inicio</a>
+            </div>
+        </section>
+    </main>
+    <!-- PIE DE PÁGINA -->
+    <footer class="pie-vida">
+        <p><strong>ITACE DIGITAL 4.0</strong> · Plantel Reynosa</p>
+        <p>Proyecto académico de información y difusión escolar.</p>
+        <p class="aviso-vida">
+            Sitio web elaborado con fines educativos. Las actividades descritas
+            presentan ejemplos generales de la vida estudiantil; deben
+            verificarse con información institucional antes de publicarse como
+            actividades oficiales del plantel.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Directorio docente del ITACE Plantel Reynosa">
+<title>Directorio Docente | ITACE Reynosa</title>
+
+<style>
+:root {
+    --vino: #702632;
+    --oscuro: #451820;
+    --beige: #f3e8d8;
+    --dorado: #c5a46d;
+    --blanco: #fff;
+    --texto: #38292b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f8f3ec;
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, var(--oscuro), var(--vino));
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+    border-bottom: 5px solid var(--dorado);
+}
+
+.logo {
+    color: var(--dorado);
+    font-size: .85rem;
+    letter-spacing: 4px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #f5e8df;
+}
+
+nav {
+    background: white;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 25px;
+    box-shadow: 0 4px 15px #00000010;
+}
+
+nav a {
+    color: var(--vino);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color .3s;
+}
+
+nav a:hover {
+    color: #ad8545;
+}
+
+.contenedor {
+    width: min(1200px, 92%);
+    margin: 40px auto;
+}
+
+.introduccion {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.introduccion h2 {
+    color: var(--vino);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.linea {
+    width: 75px;
+    height: 4px;
+    background: var(--dorado);
+    margin: 15px auto;
+    border-radius: 5px;
+}
+
+/* DOS BUSCADORES */
+.buscadores {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    max-width: 900px;
+    margin: 30px auto 20px;
+}
+
+.buscador {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #d5bd98;
+    border-radius: 30px;
+    background: white;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color .3s, box-shadow .3s;
+}
+
+.buscador:focus {
+    border-color: var(--vino);
+    box-shadow: 0 0 0 3px #70263218;
+}
+
+.contador {
+    text-align: center;
+    color: var(--vino);
+    margin: 25px 0;
+    font-weight: bold;
+}
+
+/* CUADRÍCULA DE DOCENTES */
+.directorio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+    gap: 24px;
+}
+
+/* TARJETAS */
+.docente {
+    background: white;
+    border: 1px solid #e8dac8;
+    border-radius: 17px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px #45182010;
+    transition: transform .25s, box-shadow .25s;
+}
+
+.docente:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px #45182020;
+}
+
+.cabecera-docente {
+    background: linear-gradient(135deg, var(--vino), var(--oscuro));
+    color: white;
+    padding: 25px 18px;
+    text-align: center;
+    border-bottom: 3px solid var(--dorado);
+}
+
+.foto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--dorado);
+    margin: 0 auto 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--beige);
+    color: var(--vino);
+    font-size: 2rem;
+    font-weight: bold;
+    object-fit: cover;
+}
+
+img.foto {
+    display: block;
+}
+
+.cabecera-docente h3 {
+    font-size: 1.08rem;
+    line-height: 1.4;
+}
+
+.contenido-docente {
+    padding: 21px;
+}
+
+.dato {
+    margin-bottom: 15px;
+    font-size: .92rem;
+    overflow-wrap: anywhere;
+}
+
+.dato strong {
+    display: block;
+    color: var(--vino);
+    margin-bottom: 3px;
+}
+
+/* SIN RESULTADOS */
+.sin-resultados {
+    display: none;
+    text-align: center;
+    color: var(--vino);
+    padding: 35px 15px;
+    font-weight: bold;
+}
+
+footer {
+    background: var(--oscuro);
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+    border-top: 4px solid var(--dorado);
+    margin-top: 50px;
+}
+
+footer p + p {
+    color: #e7d4c5;
+    font-size: .85rem;
+    margin-top: 5px;
+}
+
+/* DISEÑO PARA CELULARES */
+@media (max-width: 600px) {
+    header {
+        padding: 35px 15px;
+    }
+
+    .contenedor {
+        width: 94%;
+        margin: 28px auto;
+    }
+
+    .buscadores {
+        grid-template-columns: 1fr;
+    }
+
+    .directorio {
+        grid-template-columns: 1fr;
+    }
+
+    .introduccion h2 {
+        font-size: 1.65rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">ITACE · REYNOSA</div>
+    <h1>Directorio Docente</h1>
+    <p>Conoce a quienes forman parte de nuestra comunidad educativa</p>
+</header>
+
+<nav>
+    <a href="../index.html">Inicio</a>
+    <a href="#directorio">Directorio</a>
+</nav>
+
+<main class="contenedor">
+
+    <section class="introduccion">
+        <h2>Nuestro equipo docente</h2>
+        <div class="linea"></div>
+        <p>Conoce la formación académica, las materias y las especialidades de nuestros maestros.</p>
+    </section>
+
+    <!-- BUSCADORES -->
+    <div class="buscadores">
+
+        <input
+            type="search"
+            id="buscarMaestro"
+            class="buscador"
+            placeholder="Buscar por nombre del maestro..."
+            aria-label="Buscar por nombre del maestro"
+        >
+
+        <input
+            type="search"
+            id="buscarMateria"
+            class="buscador"
+            placeholder="Buscar materia, módulo o club..."
+            aria-label="Buscar por materia, módulo o club"
+        >
+
+    </div>
+
+    <p class="contador" id="contador" aria-live="polite"></p>
+
+    <!-- TODOS LOS DOCENTES EN UNA SOLA CUADRÍCULA -->
+    <section id="directorio" class="directorio"
+        aria-label="Directorio de maestros">
+    </section>
+
+    <p id="sinResultados" class="sin-resultados">
+        No se encontraron maestros con esos criterios de búsqueda.
+    </p>
+
+</main>
+
+<footer>
+    <p><strong>ITACE Plantel Reynosa</strong></p>
+    <p>Educación técnica · Formación para el futuro</p>
+</footer>
+
+<script>
+
+// ========================================
+// INFORMACIÓN DE LOS DOCENTES
+// ========================================
+
+const docentes = [
+
+{
+nombre:"Gerardo de la Rosa Ortega",
+formacion:"Licenciado en Contaduría",
+materias:"Inglés",
+semestres:"5.º semestre"
+},
+
+{
+nombre:"Erika Aidé Pérez Abrego",
+formacion:"Ingeniería Industrial en Sistemas y Maestría en Educación",
+materias:"Ciencias Naturales y Humanidades",
+semestres:"3.º y 5.º semestre",
+foto:"../imagenes/Mtra.Erika.jpeg"
+},
+
+{
+nombre:"Samuel Gonzales de la Fuente",
+formacion:"Licenciatura en Administración de Empresas y técnico en Ebanistería",
+materias:"Pensamiento Filosófico 1 y 3, Ciencias Sociales 1 y Estudios Literarios",
+semestres:"1.º, 3.º y 5.º semestre",
+foto:"../imagenes/Mtro.Samuel.jpeg"
+},
+
+{
+nombre:"Laura Esmeralda Heredia Blanco",
+formacion:"Bióloga especializada en Física y Química",
+materias:"Ciencias 1, 3 y 5",
+semestres:"1.º, 3.º y 5.º semestre",
+foto:"../imagenes/Mtra.Laura.jpeg"
+},
+
+{
+nombre:"Felipe Hernández González",
+formacion:"Ingeniería Electrónica",
+materias:"Módulo de Electrónica y Semiconductores, Lengua y Comunicación 1 y 3, Conciencia Histórica 2",
+semestres:"3.º y 5.º semestre"
+},
+
+{
+nombre:"Luis Enrique Lerma Martínez",
+formacion:"Ingeniería Petrolera, Licenciatura en Docencia y diploma en Competencias Docentes",
+materias:"Mantenimiento Petrolero e Industrial",
+semestres:"1.º, 3.º y 5.º semestre",
+foto:"../imagenes/Mtro.Luis Enrique.jpeg"
+},
+
+{
+nombre:"Yuridia Lizbeth Cepeda Ramos",
+formacion:"Ingeniería Industrial, Licenciatura en Matemáticas, Maestría en Educación e Innovación Educativa; estudios doctorales",
+materias:"Inglés y Temas Selectos de Matemáticas 2",
+semestres:"No especificado"
+},
+
+{
+nombre:"Juan Pablo Torres Adame",
+formacion:"Licenciatura en Información Administrativa y Maestría en Ciencias de la Enseñanza",
+materias:"Programación y Cultura Digital",
+semestres:"1.º, 3.º y 5.º semestre",
+extra:"Club de Robótica y cursos de Excel los sábados",
+foto:"../imagenes/Mtro.Juan Pablo.jpeg"
+},
+
+{
+nombre:"Romualdo Guadalupe de la Cruz",
+formacion:"Formación en Mantenimiento Industrial e Instalaciones Petroleras",
+materias:"Pensamiento Matemático 1 y 3",
+semestres:"1.º y 3.º semestre",
+foto:"../imagenes/Mtro.Romualdo.jpeg"
+},
+
+{
+nombre:"Nohemí Quintanilla Arcos",
+formacion:"Especialidad registrada como “Perfecta” en los datos proporcionados",
+materias:"No especificadas",
+semestres:"No especificado"
+},
+
+{
+nombre:"Liliana Rosas Pacheco",
+formacion:"Licenciatura en Pedagogía, Maestría en Docencia y Doctorado en Educación; también se reporta Maestría en Educación Media Superior",
+materias:"Conciencia Histórica, Formación Socioemocional, Lengua y Comunicación y Pensamiento Filosófico en Humanidades",
+semestres:"1.º y 5.º semestre",
+experiencia:"5 años",
+foto:"../imagenes/Mtra.Liliana.jpeg"
+},
+
+{
+nombre:"Ulises Solís Rieboles",
+formacion:"Químico Farmacéutico Biólogo, maestrías en Análisis Clínicos y Educación; estudios doctorales",
+materias:"Ciencias Naturales 1, 3 y 5",
+semestres:"1.º, 3.º y 5.º semestre",
+foto:"../imagenes/Mtro.Ulises.jpeg"
+},
+
+{
+nombre:"Benjamín Limón Martínez",
+formacion:"Formación en Informática en Sistemas; también se reporta Administración en Productividad y Calidad y Maestría en Educación",
+materias:"Cultura Digital 1.º, Inteligencia Artificial 3.º y Programación 5.º",
+semestres:"1.º, 3.º y 5.º semestre",
+experiencia:"5 años",
+foto:"../imagenes/Mtro.Limon.jpeg"
+},
+
+{
+nombre:"Trinidad Hernades Barrera",
+formacion:"Biólogo",
+materias:"Ciencias Naturales, Experimentales y Tecnología",
+semestres:"1.º, 3.º y 5.º semestre",
+foto:"../imagenes/Mtro.Trinidad.jpeg"
+},
+
+{
+nombre:"Jose Lopez Vazquez",
+formacion:"Ingeniería Industrial",
+materias:"Mantenimiento Industrial",
+semestres:"1.º, 3.º y 5.º semestre"
+},
+
+{
+nombre:"Erik Ramírez Solís",
+formacion:"Ingeniería Electromecánica y Maestría en Educación",
+materias:"Pensamiento Matemático",
+semestres:"1.º, 3.º y 5.º semestre",
+experiencia:"21 años",
+foto:"../imagenes/Mtro.Erik.jpeg"
+},
+
+{
+nombre:"Diana Janeth Uiegas Garza",
+formacion:"Licenciada en Administración",
+materias:"Habilidades para hablar en público y Matemáticas básicas",
+semestres:"1.º, 3.º y 5.º semestre"
+},
+
+{
+nombre:"Mildred Yasmín Reyes Norberto",
+formacion:"Ingeniería Química y Maestría en Docencia",
+materias:"Temas Selectos de Matemáticas 2",
+semestres:"5.º semestre"
+},
+
+{
+nombre:"Isidro de León Flores",
+formacion:"Licenciaturas en Psicopedagogía y Pedagogía",
+materias:"Educación Física Premilitar",
+semestres:"1.º, 3.º y 5.º semestre",
+experiencia:"29 años",
+foto:"../imagenes/Mtro.Isidro.jpeg"
+},
+
+{
+nombre:"Bertha Alicia Zapata Aldape",
+formacion:"Integrante de la academia de Matemáticas; cuenta con doctorado",
+materias:"Matemáticas",
+semestres:"1.º y 3.º semestre",
+experiencia:"2.5 años",
+foto:"../imagenes/Mtra.Berta.jpeg"
+},
+
+{
+nombre:"Jose Luis Gonzalez Lopez",
+formacion:"Módulo de Semiconductores",
+materias:"Matemáticas y Pensamiento Matemático 3",
+semestres:"3.º semestre"
+},
+
+{
+nombre:"Carlos Melecio Carmona Olivares",
+formacion:"Licenciatura en Diseño Gráfico (UVB); también se proporcionaron datos sobre estudios de posgrado en Educación Básica y UPN",
+materias:"Módulo de Diseño Gráfico e Inglés",
+semestres:"1.º y 3.º semestre",
+experiencia:"2 años",
+foto:"../imagenes/Mtro.Carmona.jpeg"
+},
+
+{
+nombre:"Javier Alfonso Acosta Garcia",
+formacion:"Ingeniero electromagnético y Maestría en Ingeniería Industrial y Manufactura Avanzada",
+materias:"Módulo de Mantenimiento Automotriz",
+semestres:"3.º y 5.º semestre"
+},
+
+{
+nombre:"Mario Alonso Santollo Arrollo",
+formacion:"Maestría en Educación y carrera técnica en Refrigeración y Climatización",
+materias:"Módulo de Mantenimiento Industrial",
+semestres:"3.º y 5.º semestre"
+},
+
+{
+nombre:"Grecia Ávalos Ramos",
+formacion:"Licenciatura y Maestría",
+materias:"Lengua y Comunicación",
+semestres:"1.º y 3.º semestre",
+salon:"B1",
+experiencia:"3 años",
+foto:"../imagenes/Mtra.Grecia.jpeg"
+},
+
+{
+nombre:"Walter Alan Barrera Cerda",
+formacion:"Ingeniería Industrial y Administración",
+materias:"Inglés y Club",
+semestres:"1.º, 3.º y 5.º semestre",
+salon:"A4",
+experiencia:"13 años",
+foto:"../imagenes/Mtro.Walter.jpeg"
+},
+
+{
+nombre:"Brenda Itzel Herrera Garcia",
+formacion:"Técnica en Informática, Ingeniería en Sistemas Computacionales y Maestría en Educación",
+materias:"Cultura Digital (1.º) e Inteligencia Artificial (3.º)",
+semestres:"1.º y 3.º semestre",
+experiencia:"5 años",
+foto:"../imagenes/Mtra.Brenda.jpeg"
+},
+
+{
+nombre:"Sandra Catalina Silva Camacho",
+formacion:"Formación en Comunicación y Maestría en Metodología de la Enseñanza",
+materias:"Comunicación",
+semestres:"Se indicó que imparte en todos los semestres, con referencia actual a 5.º",
+salon:"B4",
+experiencia:"25 años",
+foto:"../imagenes/Mtra.Sandra.jpeg"
+},
+
+{
+nombre:"Karla Valeria Moran Lerma",
+formacion:"Maestría",
+materias:"Pensamiento Filosófico, Ciencias Sociales y Cultura Digital",
+semestres:"1.º y 3.º semestre",
+experiencia:"33 años",
+foto:"../imagenes/Mtra.Karla.jpeg"
+},
+
+{
+nombre:"Norma Elena Torres Quiñones",
+formacion:"Ingeniería Química y Maestría en Docencia",
+materias:"Ciencias Naturales e Informática",
+semestres:"1.º, 3.º y 5.º semestre",
+salon:"C4",
+experiencia:"26 años"
+}
+
+];
+
+// ========================================
+// ELEMENTOS DEL DIRECTORIO
+// ========================================
+
+const directorio = document.getElementById("directorio");
+const buscarMaestro = document.getElementById("buscarMaestro");
+const buscarMateria = document.getElementById("buscarMateria");
+const contador = document.getElementById("contador");
+const sinResultados = document.getElementById("sinResultados");
+
+// ========================================
+// NORMALIZAR TEXTO PARA BUSCAR
+// ========================================
+
+function normalizar(texto) {
+    return String(texto || "")
+        .toLocaleLowerCase("es")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim();
+}
+
+// ========================================
+// CREAR TARJETAS
+// ========================================
+
+function crearTarjeta(docente) {
+
+    const iniciales = docente.nombre
+        .split(" ")
+        .filter(Boolean)
+        .slice(0, 2)
+        .map(palabra => palabra[0])
+        .join("")
+        .toUpperCase();
+
+    const foto = docente.foto
+        ? `<img class="foto"
+             src="${docente.foto}"
+             alt="Fotografía de ${docente.nombre}"
+             onerror="this.outerHTML='<div class=&quot;foto&quot;>${iniciales}</div>'">`
+        : `<div class="foto">${iniciales}</div>`;
+
+    return `
+    <article class="docente">
+
+        <div class="cabecera-docente">
+            ${foto}
+            <h3>${docente.nombre}</h3>
+        </div>
+
+        <div class="contenido-docente">
+
+            <p class="dato">
+                <strong>Formación académica</strong>
+                ${docente.formacion || "No especificada"}
+            </p>
+
+            <p class="dato">
+                <strong>Materias o especialidad</strong>
+                ${docente.materias || "No especificadas"}
+            </p>
+
+            <p class="dato">
+                <strong>Semestres</strong>
+                ${docente.semestres || "No especificados"}
+            </p>
+
+            ${docente.experiencia ? `
+            <p class="dato">
+                <strong>Experiencia</strong>
+                ${docente.experiencia}
+            </p>` : ""}
+
+            ${docente.salon ? `
+            <p class="dato">
+                <strong>Salón</strong>
+                ${docente.salon}
+            </p>` : ""}
+
+            ${docente.extra ? `
+            <p class="dato">
+                <strong>Actividades adicionales</strong>
+                ${docente.extra}
+            </p>` : ""}
+
+        </div>
+    </article>`;
+}
+
+// ========================================
+// MOSTRAR Y FILTRAR DOCENTES
+// ========================================
+
+function mostrarDocentes() {
+
+    const nombreBuscado = normalizar(buscarMaestro.value);
+    const materiaBuscada = normalizar(buscarMateria.value);
+
+    const resultados = docentes.filter(docente => {
+
+        const coincideNombre = normalizar(docente.nombre)
+            .includes(nombreBuscado);
+
+        const informacion = normalizar(
+            docente.materias + " " +
+            docente.formacion + " " +
+            (docente.extra || "")
+        );
+
+        const coincideMateria = informacion.includes(materiaBuscada);
+
+        return coincideNombre && coincideMateria;
+    });
+
+    // Todos los docentes aparecen juntos
+    directorio.innerHTML = resultados
+        .map(crearTarjeta)
+        .join("");
+
+    contador.textContent =
+        `Mostrando ${resultados.length} de ${docentes.length} docentes`;
+
+    sinResultados.style.display =
+        resultados.length === 0 ? "block" : "none";
+}
+
+// ========================================
+// ACTIVAR LOS DOS BUSCADORES
+// ========================================
+
+buscarMaestro.addEventListener("input", mostrarDocentes);
+buscarMateria.addEventListener("input", mostrarDocentes);
+
+// Mostrar todos los maestros al entrar
+mostrarDocentes();
+
+</script>
+
+</body>
+</html>

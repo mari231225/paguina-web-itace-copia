@@ -1,154 +1,558 @@
-/* ===== BASE ===== */
+/* =====================================================
+   ITACE REYNOSA | DISEÑO INSTITUCIONAL ELEGANTE
+   Paleta: vino, marfil, beige y dorado
+===================================================== */
+:root {
+    --vino: #702632;
+    --vino-oscuro: #351219;
+    --vino-medio: #8a3948;
+    --dorado: #c5a16f;
+    --dorado-claro: #ead4ae;
+    --marfil: #fcf9f4;
+    --beige: #f1e6d7;
+    --blanco: #ffffff;
+    --texto: #423438;
+    --texto-suave: #776970;
+    --borde: #e9ddd0;
+    --sombra: 0 12px 35px rgba(53, 18, 25, .09);
+    --transicion: .3s ease;
+}
+/* ===== CONFIGURACIÓN GENERAL ===== */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
-
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #fbf7f0;
-  color: #38292b;
-  line-height: 1.7;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--marfil);
+    color: var(--texto);
+    line-height: 1.7;
 }
-
 img {
-  max-width: 100%;
-  display: block;
+    display: block;
+    max-width: 100%;
 }
-
-a:focus,
-button:focus {
-  outline: 3px solid #bd986b;
-  outline-offset: 2px;
+a {
+    color: inherit;
+    text-decoration: none;
 }
-
-/* ===== MENÚ ===== */
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+::selection {
+    background: var(--vino);
+    color: var(--blanco);
+}
+/* ===== MENÚ PRINCIPAL ===== */
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--vino-oscuro);
+    box-shadow: 0 5px 22px rgba(0, 0, 0, .17);
 }
-
 .menu {
-  background-color: #451820;
-  padding: 15px 6%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 15px;
+    min-height: 82px;
+    padding: 15px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    flex-wrap: wrap;
 }
-
 .logo {
-  color: white;
-  text-decoration: none;
-  font-size: 26px;
-  font-weight: bold;
+    color: var(--blanco);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    white-space: nowrap;
 }
-
 .logo span {
-  display: block;
-  font-size: 10px;
-  color: #dfc5aa;
-  text-align: center;
+    display: block;
+    margin-top: -5px;
+    color: var(--dorado-claro);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-align: center;
 }
-
 .enlaces {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    flex-wrap: wrap;
 }
-
 .enlaces a {
-  color: #f6eae0;
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
+    padding: 9px 10px;
+    border-radius: 5px;
+    color: #f9efeb;
+    font-size: 12px;
+    font-weight: 600;
+    transition: var(--transicion);
 }
-
-.enlaces a:hover {
-  color: #bd986b;
+.enlaces a:hover,
+.enlaces a:focus-visible {
+    background: var(--dorado);
+    color: var(--vino-oscuro);
 }
-
-/* ===== PORTADA ===== */
+.enlaces a[aria-current="page"] {
+    color: var(--dorado-claro);
+    box-shadow: inset 0 -2px var(--dorado);
+}
+.menu-toggle {
+    display: none;
+    padding: 7px 12px;
+    border: 1px solid var(--dorado);
+    border-radius: 7px;
+    background: transparent;
+    color: var(--blanco);
+    font-size: 25px;
+    cursor: pointer;
+}
+/* ===== PORTADA PRINCIPAL ===== */
 .hero {
-  min-height: 520px;
-  padding: 80px 9%;
-  display: flex;
-  align-items: center;
-  color: white;
-  background-image: linear-gradient(rgba(49, 17, 24, 0.92), rgba(42, 19, 23, 0.82)),
-                    url("../imagenes/entrada.jpeg");
-  background-size: cover;
-  background-position: center;
+    position: relative;
+    isolation: isolate;
+    min-height: 590px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 75px 7%;
+    color: var(--blanco);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(39, 12, 18, .94) 0%,
+            rgba(69, 24, 32, .83) 48%,
+            rgba(69, 24, 32, .24) 100%
+        ),
+        url("../imagenes/entrada.jpeg") center 45% / cover no-repeat;
 }
-
+.hero::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(
+        90deg,
+        var(--dorado),
+        var(--dorado-claro),
+        var(--dorado)
+    );
+}
 .hero-contenido {
-  max-width: 650px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    animation: aparecer .8s ease both;
 }
-
 .etiqueta {
-  color: #bd986b;
-  font-size: 12px;
-  font-weight: bold;
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #e6c695;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
 }
-
 .hero h1 {
-  font-size: 50px;
-  margin: 15px 0;
+    max-width: 850px;
+    margin-bottom: 23px;
+    color: var(--blanco);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 500;
+    line-height: 1.13;
+    letter-spacing: -1px;
 }
-
 .hero p {
-  font-size: 18px;
-  margin-bottom: 20px;
+    max-width: 660px;
+    margin-bottom: 30px;
+    color: #f4e9e5;
+    font-size: 18px;
+    line-height: 1.9;
 }
-
+.hero-botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
 /* ===== BOTONES ===== */
 .boton {
-  display: inline-block;
-  padding: 12px 22px;
-  background-color: #f3e8d8;
-  color: #451820;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 49px;
+    padding: 12px 22px;
+    border: 1px solid var(--dorado);
+    border-radius: 6px;
+    background: var(--dorado);
+    color: var(--vino-oscuro);
+    font-size: 14px;
+    font-weight: 800;
+    text-align: center;
+    transition: var(--transicion);
 }
-
 .boton:hover {
-  background-color: white;
+    transform: translateY(-3px);
+    background: var(--dorado-claro);
+    box-shadow: 0 9px 22px rgba(0, 0, 0, .16);
 }
-
+.boton-secundario {
+    border-color: rgba(255, 255, 255, .65);
+    background: rgba(255, 255, 255, .06);
+    color: var(--blanco);
+}
+.boton-secundario:hover {
+    border-color: var(--blanco);
+    background: var(--blanco);
+    color: var(--vino-oscuro);
+}
+/* ===== SECCIÓN DE ACCESOS ===== */
+.seccion-inicio {
+    padding: 85px 6% 95px;
+}
+.encabezado-seccion {
+    max-width: 800px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+.encabezado-seccion .etiqueta {
+    margin-bottom: 10px;
+    color: #a47c4d;
+}
+.encabezado-seccion h2 {
+    margin-bottom: 15px;
+    color: var(--vino-oscuro);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(31px, 4vw, 45px);
+    font-weight: 500;
+    line-height: 1.25;
+}
+.encabezado-seccion p {
+    max-width: 680px;
+    margin: 0 auto;
+    color: var(--texto-suave);
+    font-size: 16px;
+}
+/* ===== TARJETAS ===== */
+.tarjetas-inicio {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+.tarjeta-inicio {
+    position: relative;
+    min-width: 0;
+    min-height: 275px;
+    padding: 30px 27px;
+    overflow: hidden;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    background: var(--blanco);
+    box-shadow: 0 5px 20px rgba(53, 18, 25, .045);
+    transition:
+        transform var(--transicion),
+        box-shadow var(--transicion),
+        border-color var(--transicion);
+}
+.tarjeta-inicio::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: var(--dorado);
+    transition: width var(--transicion);
+}
+.tarjeta-inicio:hover {
+    transform: translateY(-7px);
+    border-color: #d8bd95;
+    box-shadow: var(--sombra);
+}
+.tarjeta-inicio:hover::before {
+    width: 100%;
+}
+.icono-tarjeta {
+    width: 49px;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 23px;
+    border: 1px solid #e5cba4;
+    border-radius: 50%;
+    background: #f8f0e5;
+    color: var(--vino);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    font-weight: bold;
+    transition: var(--transicion);
+}
+.tarjeta-inicio:hover .icono-tarjeta {
+    background: var(--vino);
+    color: var(--dorado-claro);
+    border-color: var(--vino);
+}
+.tarjeta-inicio h3 {
+    margin-bottom: 11px;
+    color: var(--vino);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+.tarjeta-inicio p {
+    margin-bottom: 20px;
+    color: var(--texto-suave);
+    font-size: 14px;
+    line-height: 1.85;
+}
+.tarjeta-inicio > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--vino);
+    font-size: 13px;
+    font-weight: 800;
+    transition: color var(--transicion);
+}
+.tarjeta-inicio > a:hover {
+    color: #a47c4d;
+}
+/* ===== FRANJA DE IDENTIDAD ===== */
+.franja-identidad {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    padding: 70px 8%;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(197, 161, 111, .16),
+            transparent 32%
+        ),
+        linear-gradient(120deg, #351219, #702632);
+    color: var(--blanco);
+}
+.franja-identidad > div {
+    max-width: 740px;
+}
+.franja-identidad .etiqueta {
+    color: var(--dorado-claro);
+}
+.franja-identidad h2 {
+    margin-bottom: 15px;
+    color: var(--blanco);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(29px, 4vw, 43px);
+    font-weight: 500;
+    line-height: 1.25;
+}
+.franja-identidad p {
+    max-width: 680px;
+    color: #f0e2df;
+    font-size: 15px;
+    line-height: 1.9;
+}
+.franja-identidad > .boton {
+    flex-shrink: 0;
+}
 /* ===== PIE DE PÁGINA ===== */
 .site-footer {
-  background-color: #301219;
-  color: #e8d9cf;
-  text-align: center;
-  padding: 30px 15px;
-  font-size: 14px;
+    padding: 38px 6% 30px;
+    background: #281015;
+    color: #f4e9e5;
+    text-align: center;
 }
-
-/* ===== CELULAR ===== */
+.site-footer p:first-child {
+    margin-bottom: 8px;
+    color: var(--dorado-claro);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+.site-footer p {
+    margin: 6px 0;
+    font-size: 13px;
+}
+.site-footer a {
+    display: inline-block;
+    margin-top: 15px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--dorado);
+    color: var(--dorado-claro);
+    font-size: 13px;
+    font-weight: bold;
+    transition: color var(--transicion);
+}
+.site-footer a:hover {
+    color: var(--blanco);
+}
+/* ===== ANIMACIONES ===== */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ===== TABLET ===== */
+@media (max-width: 1050px) {
+    .menu {
+        gap: 15px;
+    }
+    .enlaces {
+        gap: 2px;
+    }
+    .enlaces a {
+        padding: 8px;
+        font-size: 11px;
+    }
+    .tarjetas-inicio {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .aviso-academico {
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+}
+/* ===== CELULARES ===== */
 @media (max-width: 700px) {
-  .menu {
-    justify-content: center;
-  }
-
-  .enlaces {
-    justify-content: center;
-    gap: 10px 14px;
-  }
-
-  .hero {
-    min-height: 420px;
-    padding: 60px 7%;
-  }
-
-  .hero h1 {
-    font-size: 34px;
-  }
+    html {
+        scroll-padding-top: 80px;
+    }
+    .menu {
+        min-height: 70px;
+        padding: 12px 5%;
+        gap: 10px;
+    }
+    .logo {
+        font-size: 24px;
+    }
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+    }
+    .enlaces {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding-top: 8px;
+    }
+    .enlaces.activo {
+        display: flex;
+    }
+    .enlaces a {
+        width: 100%;
+        padding: 12px 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, .12);
+        border-radius: 0;
+        font-size: 14px;
+    }
+    .hero {
+        min-height: 490px;
+        padding: 55px 6%;
+        background-position: 58% center;
+    }
+    .hero h1 {
+        font-size: clamp(36px, 9vw, 49px);
+    }
+    .hero p {
+        font-size: 15px;
+        line-height: 1.85;
+    }
+    .hero-botones {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .hero-botones .boton {
+        width: 100%;
+    }
+    .seccion-inicio {
+        padding: 60px 5%;
+    }
+    .encabezado-seccion {
+        margin-bottom: 30px;
+    }
+    .tarjetas-inicio {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .tarjeta-inicio {
+        min-height: 0;
+        padding: 25px;
+    }
+    .franja-identidad {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 50px 6%;
+        gap: 25px;
+    }
+    .franja-identidad > .boton {
+        width: 100%;
+    }
+    .aviso-academico {
+        margin-top: 35px;
+        margin-bottom: 35px;
+        padding: 20px;
+    }
+    .site-footer {
+        padding: 32px 5% 25px;
+    }
+}
+/* ===== CELULARES PEQUEÑOS ===== */
+@media (max-width: 380px) {
+    .logo {
+        font-size: 21px;
+    }
+    .hero h1 {
+        font-size: 34px;
+    }
+    .etiqueta {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+    .tarjeta-inicio {
+        padding: 22px;
+    }
+}
+/* ===== ACCESIBILIDAD ===== */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--dorado);
+    outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
 }

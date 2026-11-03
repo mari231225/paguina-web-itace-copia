@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eventos, actividades y conferencias del ITACE Plantel Reynosa.">
+    <title>Eventos y conferencias | ITACE</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        :root {
+            --vino: #702632;
+            --vino-oscuro: #451820;
+            --beige: #f3e8d8;
+            --crema: #fffaf3;
+            --dorado: #c4a15a;
+            --texto: #49383a;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 25px;
+        }
+        body {
+            margin: 0;
+            color: var(--texto);
+            background: linear-gradient(180deg, var(--crema), var(--beige));
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.7;
+        }
+        a:focus-visible {
+            outline: 3px solid var(--dorado);
+            outline-offset: 4px;
+        }
+        .portada {
+            padding: 75px 20px;
+            color: white;
+            text-align: center;
+            background:
+                linear-gradient(135deg, rgba(69,24,32,.97), rgba(112,38,50,.91));
+            border-bottom: 5px solid var(--dorado);
+        }
+        .etiqueta {
+            display: inline-block;
+            padding: 6px 17px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255,255,255,.45);
+            border-radius: 30px;
+            color: #fff3d9;
+            font-size: .82rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .portada h1 {
+            max-width: 900px;
+            margin: 0 auto 15px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            line-height: 1.2;
+        }
+        .portada p {
+            max-width: 750px;
+            margin: 0 auto;
+            color: #f7e9e2;
+            font-size: 1.05rem;
+        }
+        .contenido {
+            width: min(1150px, 92%);
+            margin: 45px auto;
+        }
+        .introduccion {
+            max-width: 850px;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+        .introduccion h2,
+        .titulo-seccion {
+            color: var(--vino);
+            font-family: Georgia, "Times New Roman", serif;
+        }
+        .introduccion h2 {
+            margin-bottom: 12px;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        }
+        .linea-dorada {
+            width: 75px;
+            height: 4px;
+            margin: 18px auto;
+            background: var(--dorado);
+            border-radius: 10px;
+        }
+        .introduccion p {
+            margin: 0;
+        }
+        .eventos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+        }
+        .evento {
+            overflow: hidden;
+            background: rgba(255,255,255,.92);
+            border: 1px solid rgba(112,38,50,.13);
+            border-radius: 17px;
+            box-shadow: 0 8px 24px rgba(69,24,32,.08);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+        .evento:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 30px rgba(69,24,32,.15);
+        }
+        .evento img {
+            display: block;
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .evento-contenido {
+            padding: 23px;
+        }
+        .categoria {
+            display: inline-block;
+            padding: 5px 12px;
+            color: var(--vino);
+            background: var(--beige);
+            border-radius: 20px;
+            font-size: .78rem;
+            font-weight: 700;
+        }
+        .evento h3 {
+            margin: 13px 0 10px;
+            color: var(--vino);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.4rem;
+            line-height: 1.35;
+        }
+        .evento p {
+            margin: 0 0 12px;
+            font-size: .95rem;
+        }
+        .fecha {
+            display: block;
+            padding-top: 12px;
+            color: #765b36;
+            border-top: 1px solid #eadcc8;
+            font-size: .88rem;
+            font-weight: 600;
+        }
+        .seccion-info {
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(255,255,255,.78);
+            border-left: 5px solid var(--dorado);
+            border-radius: 12px;
+        }
+        .seccion-info h2 {
+            margin-top: 0;
+            color: var(--vino);
+            font-family: Georgia, "Times New Roman", serif;
+        }
+        .seccion-info p:last-child {
+            margin-bottom: 0;
+        }
+        .centrado {
+            margin: 35px 0;
+            text-align: center;
+        }
+        .boton {
+            display: inline-block;
+            padding: 12px 25px;
+            color: white;
+            background: var(--vino);
+            border: 2px solid var(--vino);
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background .2s ease, color .2s ease;
+        }
+        .boton:hover {
+            color: var(--vino);
+            background: transparent;
+        }
+        footer {
+            padding: 25px 15px;
+            color: #f9eee5;
+            background: var(--vino-oscuro);
+            text-align: center;
+            font-size: .9rem;
+        }
+        footer p {
+            margin: 5px;
+        }
+        @media (max-width: 900px) {
+            .eventos-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        @media (max-width: 600px) {
+            .portada {
+                padding: 52px 18px;
+            }
+            .contenido {
+                margin: 30px auto;
+            }
+            .eventos-grid {
+                grid-template-columns: 1fr;
+            }
+            .evento img {
+                height: 230px;
+            }
+            .seccion-info {
+                padding: 22px;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="portada">
+        <span class="etiqueta">ITACE · Plantel Reynosa</span>
+        <h1>Eventos y conferencias</h1>
+        <p>
+            Un espacio para compartir las actividades académicas,
+            culturales y educativas que fortalecen la convivencia
+            y el aprendizaje de nuestra comunidad estudiantil.
+        </p>
+    </header>
+    <main class="contenido">
+        <section class="introduccion">
+            <h2>Momentos que construyen nuestra comunidad</h2>
+            <div class="linea-dorada"></div>
+            <p>
+                Los eventos escolares permiten desarrollar habilidades,
+                compartir conocimientos, fomentar el compañerismo y
+                participar en experiencias que complementan la formación
+                académica y técnica.
+            </p>
+        </section>
+        <section class="eventos-grid" aria-label="Tipos de eventos escolares">
+            <article class="evento">
+                <img
+                    src="../imagenes/festival.jpeg"
+                    alt="Actividad o festival realizado en el plantel"
+                    loading="lazy"
+                >
+                <div class="evento-contenido">
+                    <span class="categoria">Cultural</span>
+                    <h3>Festivales escolares</h3>
+                    <p>
+                        Actividades que reúnen a la comunidad educativa
+                        mediante presentaciones, expresiones artísticas
+                        y momentos de convivencia.
+                    </p>
+                    <span class="fecha">Fecha: por confirmar</span>
+                </div>
+            </article>
+            <article class="evento">
+                <img
+                    src="../imagenes/honores.jpeg"
+                    alt="Actividad cívica escolar"
+                    loading="lazy"
+                >
+                <div class="evento-contenido">
+                    <span class="categoria">Cívico</span>
+                    <h3>Actos cívicos</h3>
+                    <p>
+                        Espacios para promover el respeto, la participación
+                        y el reconocimiento de las fechas importantes
+                        de nuestra historia.
+                    </p>
+                    <span class="fecha">Fecha: por confirmar</span>
+                </div>
+            </article>
+            <article class="evento">
+                <img
+                    src="../imagenes/presentaciones.jpeg"
+                    alt="Estudiantes participando en una presentación"
+                    loading="lazy"
+                >
+                <div class="evento-contenido">
+                    <span class="categoria">Académico</span>
+                    <h3>Presentaciones académicas</h3>
+                    <p>
+                        Exposiciones en las que el alumnado puede
+                        comunicar sus ideas, demostrar lo aprendido
+                        y compartir el resultado de sus trabajos.
+                    </p>
+                    <span class="fecha">Fecha: por confirmar</span>
+                </div>
+            </article>
+            <article class="evento">
+                <img
+                    src="../imagenes/conferencias.jpeg"
+                    alt="Espacio de aprendizaje práctico"
+                    loading="lazy"
+                >
+                <div class="evento-contenido">
+                    <span class="categoria">Formativo</span>
+                    <h3>Conferencias y talleres</h3>
+                    <p>
+                        Actividades formativas que pueden acercar
+                        a los estudiantes a nuevos conocimientos,
+                        herramientas y experiencias profesionales.
+                    </p>
+                    <span class="fecha">Fecha: por confirmar</span>
+                </div>
+            </article>
+            <article class="evento">
+                <img
+                    src="../imagenes/banda de guerra.jpeg"
+                    alt="Banda de guerra escolar"
+                    loading="lazy"
+                >
+                <div class="evento-contenido">
+                    <span class="categoria">Participación</span>
+                    <h3>Actividades representativas</h3>
+                    <p>
+                        La participación en grupos y actividades
+                        escolares favorece la disciplina, el trabajo
+                        en equipo y el sentido de pertenencia.
+                    </p>
+                    <span class="fecha">Fecha: por confirmar</span>
+                </div>
+            </article>
+            <article class="evento">
+                <img
+                    src="../imagenes/feri infantil2.jpeg"
+                    alt="Actividad educativa o feria escolar"
+                    loading="lazy"
+                >
+                <div class="evento-contenido">
+                    <span class="categoria">Educativo</span>
+                    <h3>Ferias y actividades educativas</h3>
+                    <p>
+                        Las ferias y muestras educativas pueden
+                        convertirse en oportunidades para presentar
+                        proyectos, explorar ideas y aprender en equipo.
+                    </p>
+                    <span class="fecha">Fecha: por confirmar</span>
+                </div>
+            </article>
+        </section>
+        <section class="seccion-info">
+            <h2>¿Por qué son importantes los eventos escolares?</h2>
+            <p>
+                Además de complementar las clases, las actividades
+                escolares ofrecen oportunidades para fortalecer
+                la comunicación, la creatividad, la responsabilidad
+                y la colaboración entre estudiantes.
+            </p>
+            <p>
+                La participación en conferencias, talleres y eventos
+                también puede ayudar a descubrir nuevos intereses
+                y desarrollar habilidades útiles para el futuro.
+            </p>
+        </section>
+        <div class="centrado">
+            <a href="../index.html" class="boton">
+                Volver al inicio
+            </a>
+        </div>
+    </main>
+    <footer>
+        <p><strong>ITACE Plantel Reynosa</strong></p>
+        <p>Proyecto académico ITACE DIGITAL 4.0 · Propuesta no oficial</p>
+    </footer>
+</body>
+</html>

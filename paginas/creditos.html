@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Créditos, fuentes de información y recursos utilizados en ITACE DIGITAL 4.0.">
+    <title>Créditos y fuentes | ITACE DIGITAL 4.0</title>
+    <style>
+        :root {
+            --vino: #702632;
+            --vino-oscuro: #451820;
+            --beige: #f3e8d8;
+            --fondo: #fffaf3;
+            --dorado: #c9a45c;
+            --texto: #443333;
+            --blanco: #ffffff;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--fondo);
+            color: var(--texto);
+            line-height: 1.7;
+        }
+        /* ENCABEZADO */
+        .encabezado {
+            background: linear-gradient(
+                135deg,
+                var(--vino-oscuro),
+                var(--vino)
+            );
+            color: var(--blanco);
+            text-align: center;
+            padding: 52px 20px;
+            border-bottom: 5px solid var(--dorado);
+        }
+        .encabezado h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 12px;
+        }
+        .encabezado p {
+            max-width: 760px;
+            margin: auto;
+            color: #f6e8df;
+        }
+        /* CONTENIDO */
+        main {
+            width: min(1000px, 92%);
+            margin: 40px auto;
+        }
+        .introduccion {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        .introduccion h2 {
+            color: var(--vino);
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            margin-bottom: 12px;
+        }
+        /* TARJETAS */
+        .creditos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+        .tarjeta {
+            background: var(--blanco);
+            padding: 25px;
+            border: 1px solid #e8d8c5;
+            border-top: 5px solid var(--dorado);
+            border-radius: 15px;
+            box-shadow: 0 7px 22px #45182010;
+            transition: transform 0.3s ease,
+                        box-shadow 0.3s ease;
+        }
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 26px #45182020;
+        }
+        .tarjeta h3 {
+            color: var(--vino);
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+        .tarjeta ul {
+            padding-left: 22px;
+        }
+        .tarjeta li {
+            margin-bottom: 9px;
+        }
+        .tarjeta a {
+            color: var(--vino);
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+        .tarjeta a:hover {
+            color: #9a642c;
+            text-decoration: underline;
+        }
+
+        /* BOTÓN */
+        .acciones {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 35px;
+        }
+        .boton {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--vino);
+            color: var(--blanco);
+            border: 2px solid var(--vino);
+            border-radius: 30px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.25s ease,
+                        color 0.25s ease,
+                        transform 0.25s ease;
+        }
+        .boton:hover {
+            background: transparent;
+            color: var(--vino);
+            transform: translateY(-3px);
+        }
+        a:focus-visible {
+            outline: 3px solid var(--dorado);
+            outline-offset: 4px;
+        }
+        /* PIE DE PÁGINA */
+        footer {
+            background: var(--vino-oscuro);
+            color: var(--blanco);
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 55px;
+            border-top: 4px solid var(--dorado);
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        /* TABLET */
+        @media (max-width: 750px) {
+            .creditos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* CELULAR */
+        @media (max-width: 550px) {
+            .encabezado {
+                padding: 40px 16px;
+            }
+            main {
+                margin: 28px auto;
+            }
+            .tarjeta,
+            .aviso {
+                padding: 20px;
+            }
+            .acciones {
+                flex-direction: column;
+            }
+            .boton {
+                width: 100%;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ENCABEZADO -->
+    <header class="encabezado">
+        <h1>Créditos y fuentes</h1>
+        <p>
+            Reconocemos las fuentes de información y los recursos
+            utilizados para desarrollar ITACE DIGITAL 4.0.
+        </p>
+    </header>
+    <main>
+        <!-- INTRODUCCIÓN -->
+        <section class="introduccion">
+            <h2>Detrás de nuestro proyecto</h2>
+            <p>
+                Esta página reúne los créditos de las fuentes,
+                imágenes, videos y herramientas que contribuyeron
+                al desarrollo de nuestro sitio web escolar.
+            </p>
+        </section>
+        <!-- CRÉDITOS -->
+        <section class="creditos-grid">
+            <article class="tarjeta">
+                <h3>1. Información institucional</h3>
+                <ul>
+                    <li>
+                        <a
+                            href="https://www.facebook.com/itaceplantelreynosa/?locale=es_LA"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Sitio oficial del ITACE
+                        </a>
+                    </li>
+                    <li>
+                        Información del Plantel Reynosa, su oferta
+                        educativa y sus servicios, sujeta a verificación
+                        en las fuentes institucionales.
+                    </li>
+                </ul>
+            </article>
+            <article class="tarjeta">
+                <h3>2. Fotografías e imágenes</h3>
+                <ul>
+                    <li>
+                        Fotografías de instalaciones, actividades
+                        y proyectos incorporadas al sitio.
+                    </li>
+                    <li>
+                        Los créditos específicos deben añadirse según
+                        el autor o la fuente de cada archivo.
+                    </li>
+                    <li>
+                        Se deben respetar los permisos de uso y la
+                        privacidad de las personas fotografiadas.
+                    </li>
+                </ul>
+            </article>
+            <article class="tarjeta">
+                <h3>3. Videos y material audiovisual</h3>
+                <ul>
+                    <li>
+                        Videos y materiales audiovisuales utilizados
+                        en la sección de Identidad y Orgullo ITACE.
+                    </li>
+                    <li>
+                        Completar con el título, autor o institución
+                        responsable y la fuente de cada video.
+                    </li>
+                    <li>
+                        Verificar que se cuente con autorización para
+                        incorporar y publicar estos materiales.
+                    </li>
+                </ul>
+            </article>
+            <article class="tarjeta">
+                <h3>4. Herramientas de desarrollo</h3>
+                <ul>
+                    <li>HTML para la estructura de las páginas.</li>
+                    <li>CSS para los estilos y el diseño adaptable.</li>
+                    <li>JavaScript para las funciones interactivas.</li>
+                    <li>Visual Studio Code como editor de código, si fue la herramienta utilizada.</li>
+                    <li>Git y GitHub para el control de versiones, si se utilizaron.</li>
+                </ul>
+            </article>
+            <article class="tarjeta">
+                <h3>5. Diseño y elaboración</h3>
+                <ul>
+                    <li>
+                        Diseño visual con una paleta de colores vino,
+                        beige y dorado.
+                    </li>
+                    <li>
+                        Organización de contenidos y elaboración
+                        de las páginas del proyecto.
+                    </li>
+                    <li>
+                        Adaptación para computadoras, tabletas
+                        y teléfonos celulares.
+                    </li>
+                </ul>
+            </article>
+            <article class="tarjeta">
+                <h3>6. Créditos académicos</h3>
+                <ul>
+                    <li><strong>Proyecto:</strong> ITACE DIGITAL 4.0</li>
+                    <li><strong>Institución:</strong> ITACE Plantel Reynosa</li>
+                    <li><strong>Elaborado por:</strong> MARIELENA CORTES ESPINOSA</li>
+                    <li><strong>Grupo:</strong> 502-B</li>
+                    <li><strong>Docente:</strong> Benjamín Limón Martínez</li>
+                </ul>
+            </article>
+        </section> 
+        <!-- NAVEGACIÓN -->
+        <nav class="acciones" aria-label="Navegación">
+            <a href="../index.html" class="boton">
+                Volver al inicio
+            </a>
+            <a href="contacto.html" class="boton">
+                Contacto
+            </a>
+        </nav>
+    </main>
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p><strong>ITACE DIGITAL 4.0</strong></p>
+        <p>Créditos y fuentes</p>
+        <p>Proyecto académico estudiantil</p>
+    </footer>
+</body>
+</html>
