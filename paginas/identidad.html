@@ -293,6 +293,126 @@
                 animation-duration: 0.01ms !important;
             }
         }
+        /* =================================
+   DISEÑO RESPONSIVE PARA CELULARES
+================================= */
+
+@media (max-width: 900px) {
+
+    .identidad-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .videos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    .encabezado {
+        padding: 38px 18px;
+    }
+
+    .encabezado h1 {
+        font-size: 2rem;
+        line-height: 1.25;
+    }
+
+    .encabezado p {
+        font-size: 0.95rem;
+    }
+
+    main {
+        width: 92%;
+        margin: 28px auto;
+    }
+
+    .introduccion {
+        margin-bottom: 30px;
+    }
+
+    .introduccion p {
+        font-size: 0.95rem;
+        text-align: justify;
+    }
+
+    .identidad-grid {
+        grid-template-columns: 1fr;
+        gap: 17px;
+        margin-bottom: 40px;
+    }
+
+    .identidad-tarjeta {
+        padding: 23px 20px;
+    }
+
+    .videos {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin: 25px 0 35px;
+    }
+
+    .videos-tarjeta {
+        padding: 19px;
+        border-radius: 15px;
+    }
+
+    .videos-tarjeta h3 {
+        font-size: 1.2rem;
+    }
+
+    .videos-tarjeta video {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    .videos-tarjeta audio {
+        width: 100%;
+    }
+
+    .boton-regreso {
+        width: 100%;
+        padding: 13px 15px;
+    }
+
+    .pie-identidad {
+        padding: 28px 12px;
+    }
+
+    .pie-identidad h2 {
+        font-size: 25px;
+        letter-spacing: 4px;
+    }
+
+    .pie-identidad p {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .audio-flotante {
+        right: 12px;
+        bottom: 12px;
+        padding: 7px 12px;
+        gap: 8px;
+    }
+
+    .audio-flotante button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .audio-flotante span {
+        font-size: 12px;
+    }
+
+}
     </style>
 </head>
 
